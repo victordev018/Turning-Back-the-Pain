@@ -148,6 +148,6 @@ shape = SubResource("RectangleShape2D_ofdwy")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_yh781")
-animation = &"Death"
+animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.624194
+frame_progress = 0.581781
