@@ -1,11 +1,36 @@
-[gd_scene load_steps=16 format=3 uid="uid://cgqkpqbj3nt8d"]
+[gd_scene load_steps=23 format=3 uid="uid://cgqkpqbj3nt8d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dswwk"]
 [ext_resource type="Texture2D" uid="uid://cdr4ug0sjhnnl" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_ks538"]
+[ext_resource type="Texture2D" uid="uid://bo68y1qdjru28" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="2_1gobl"]
 [ext_resource type="Texture2D" uid="uid://deihtfnil2mxx" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="3_asc40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofdwy"]
 size = Vector2(20, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oourb"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(0, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aobb1"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(49, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sytwy"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(98, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q44qu"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(147, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsfos"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(196, 0, 38, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57t1q"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(245, 0, 38, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c73jb"]
 atlas = ExtResource("1_ks538")
@@ -49,6 +74,29 @@ region = Rect2(320, 32, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yh781"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oourb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aobb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sytwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q44qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsfos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57t1q")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c73jb")
@@ -100,6 +148,6 @@ shape = SubResource("RectangleShape2D_ofdwy")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_yh781")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
-frame_progress = 0.368121
+frame_progress = 0.624194
