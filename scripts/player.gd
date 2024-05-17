@@ -1,40 +1,49 @@
 extends CharacterBody2D
 
-## speed player
-@export var speed:= 64.0;
+## Referência do nó da Espada
+@onready var mySword = get_node("SwordNode")
+## Direção do Player
+var facing : int = 1
+var mpos: Vector2 = Vector2.ZERO
+var direction: Vector2 = Vector2.ZERO
 
-## reference animation
-@onready var animation := $animation;
-
-
-func _physics_process(delta: float) -> void:
-	movimentar_player(delta)
-
-func movimentar_player(delta) -> void:
-	## get direction
-	var direction :Vector2 = Vector2(
-		Input.get_axis("move_left", "move_rigth"),
-		Input.get_axis("move_up", "move_down")
-	)
-	## applying movement
-	velocity = direction.normalized() * speed
-	move_and_slide()
+func _ready():
+	set_process(true)
 	
-	##Ajeitei o codigo aqui
-	if direction != Vector2.ZERO: # se player estiver correndo
-		# verificar se está correndo para esquerda
-		if direction.x < 0:
-			animation.flip_h = true;
-		elif direction.x > 0:
-			animation.flip_h = false
-		animation.play("Run")
-	else:
-		animation.play("Idle")
+func _draw():
+	pass
+
+## Ajustar direção para onde o Player está olhando.
+func manageFacing():
+	# Saber para onde o player deve olhar: esquerda ou direita
+	var _newFacing = sign(mpos.x - position.x)
+	facing = _newFacing if _newFacing != 0 else facing
 	
+func manageSword():
+	# Ajustar escala do player conforme o facing
+	mySword.scale.x = facing
+	
+	# Apontar a espada
+	mySword.look_at(mpos)
+	mySword.rotation = mySword.rotation - 280.0 * int(facing < 0)
+	
+	# Apontar Player
+	$Animation.scale.x = facing;
+	$RollSprite.scale.x = facing;
 
+func _process(delta):
+	mpos = get_global_mouse_position();	
+	manageFacing()
+	manageSword()
 
-
-
+	# Atacar 
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		$AnimationPlayer.play("Attack")
+		
+	# Rolar
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
+		$AnimationPlayer.play(_rollAnimation)
 
 
 
