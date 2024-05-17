@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgqkpqbj3nt8d"]
+[gd_scene load_steps=27 format=3 uid="uid://cgqkpqbj3nt8d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dswwk"]
 [ext_resource type="Texture2D" uid="uid://cdr4ug0sjhnnl" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_ks538"]
@@ -8,29 +8,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofdwy"]
 size = Vector2(20, 4)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oourb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsu0u"]
 atlas = ExtResource("2_1gobl")
-region = Rect2(0, 0, 38, 32)
+region = Rect2(0, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aobb1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lbun"]
 atlas = ExtResource("2_1gobl")
-region = Rect2(49, 0, 38, 32)
+region = Rect2(48, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sytwy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg30e"]
 atlas = ExtResource("2_1gobl")
-region = Rect2(98, 0, 38, 32)
+region = Rect2(96, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q44qu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_75lgw"]
 atlas = ExtResource("2_1gobl")
-region = Rect2(147, 0, 38, 32)
+region = Rect2(144, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qsfos"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l61xe"]
 atlas = ExtResource("2_1gobl")
-region = Rect2(196, 0, 38, 32)
+region = Rect2(192, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57t1q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb32a"]
 atlas = ExtResource("2_1gobl")
-region = Rect2(245, 0, 38, 32)
+region = Rect2(240, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c73jb"]
 atlas = ExtResource("1_ks538")
@@ -47,6 +47,10 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4rxd"]
 atlas = ExtResource("1_ks538")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kufom"]
+atlas = ExtResource("2_1gobl")
+region = Rect2(48, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxyvi"]
 atlas = ExtResource("3_asc40")
@@ -76,22 +80,22 @@ region = Rect2(320, 32, 64, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oourb")
+"texture": SubResource("AtlasTexture_vsu0u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aobb1")
+"texture": SubResource("AtlasTexture_7lbun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sytwy")
+"texture": SubResource("AtlasTexture_xg30e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q44qu")
+"texture": SubResource("AtlasTexture_75lgw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qsfos")
+"texture": SubResource("AtlasTexture_l61xe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_57t1q")
+"texture": SubResource("AtlasTexture_rb32a")
 }],
 "loop": true,
 "name": &"Death",
@@ -113,6 +117,14 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kufom")
+}],
+"loop": true,
+"name": &"Roll",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -138,6 +150,67 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_vor7p"]
+resource_name = "Roll"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 1, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_qspki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xv3we"]
+_data = {
+"RESET": SubResource("Animation_qspki"),
+"Roll": SubResource("Animation_vor7p")
+}
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dswwk")
 
@@ -146,8 +219,22 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_ofdwy")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_yh781")
-animation = &"Run"
+animation = &"Roll"
 autoplay = "Idle"
-frame_progress = 0.581781
+frame_progress = 0.0599596
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("2_1gobl")
+centered = false
+offset = Vector2(-16, -22)
+hframes = 6
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xv3we")
+}
