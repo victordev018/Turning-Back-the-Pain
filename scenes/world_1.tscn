@@ -6,4 +6,5 @@
 
 [node name="Player" parent="." instance=ExtResource("1_rnydu")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(115, -25, 107, -71, 151, -72, 156, -30)
