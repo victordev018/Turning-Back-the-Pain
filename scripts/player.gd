@@ -35,7 +35,6 @@ func _process(delta):
 	mpos = get_global_mouse_position();	
 	manageFacing()
 	manageSword()
-
 	# Atacar 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		$AnimationPlayer.play("Attack")
@@ -44,6 +43,4 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
 		$AnimationPlayer.play(_rollAnimation)
-
-
 

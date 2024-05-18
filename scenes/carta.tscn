@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmiclcmtoiqx"]
+
+[ext_resource type="Script" path="res://scripts/carta.gd" id="1_uf0j1"]
+[ext_resource type="Texture2D" uid="uid://dnuh87e38267n" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Bone/Bone.png" id="2_exrvq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvw47"]
+radius = 7.0
+
+[node name="carta" type="Area2D"]
+script = ExtResource("1_uf0j1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_exrvq")
+region_enabled = true
+region_rect = Rect2(129, 1, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_qvw47")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
