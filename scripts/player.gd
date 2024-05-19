@@ -43,4 +43,3 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
 		$AnimationPlayer.play(_rollAnimation)
-
