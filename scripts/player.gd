@@ -33,8 +33,12 @@ func manageSword():
 	$RollSprite.scale.x = facing;
 	
 func _physics_process(delta):
-	_move()
-	move_and_slide()
+	var _canMove: bool = !Global.uiNode.visible;
+	if _canMove:
+		_move()
+		move_and_slide()
+	else:
+		velocity = Vector2.ZERO;
 	state_machine()
 	
 func _move() -> void:
@@ -63,3 +67,10 @@ func _process(delta):
 		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
 		
 		$AnimationPlayer.play(_rollAnimation)
+
+func state_machine():
+	var state = "Idle"
+	if velocity.length() > 0:
+		state = "Run"
+	if animation.name != state: 
+		animation.play(state)

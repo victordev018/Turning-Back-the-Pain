@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var canvasLayer = $"."
 
 ## array of history:
-var history: Array = [
+var history: Array[String] = [
 	"Esta é a primeira frase do meu label...",
 	"Esta é a segunda frase do meu label...",
 	"Esta é a terceira frase do meu label..."
@@ -16,6 +16,10 @@ var history: Array = [
 ## index of label text
 var index_label_current = 0;
 
+func _ready():
+	# quando ui nascer, atualizar a referência Global
+	Global.uiNode = self
+	
 func _process(delta):
 	show_text_label()
 	
