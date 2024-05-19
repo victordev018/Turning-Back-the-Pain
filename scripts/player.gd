@@ -54,7 +54,6 @@ func _process(delta):
 	mpos = get_global_mouse_position();	
 	manageFacing()
 	manageSword()
-
 	# Atacar 
 	if Input.is_action_just_pressed("attack"):
 		$AnimationPlayer.play("Attack")
@@ -64,11 +63,3 @@ func _process(delta):
 		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
 		
 		$AnimationPlayer.play(_rollAnimation)
-
-func state_machine():
-	var state = "Idle"
-	if _direction.x > 0 or _direction.x < 0:
-		state = "Run"
-	if animation.name != state: 
-		animation.play(state)
-	

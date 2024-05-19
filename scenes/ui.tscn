@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxhr2idu8by75"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_otmau"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yr5n5"]
+line_spacing = 1.5
+font_size = 8
+font_color = Color(1, 0.156863, 0.286275, 1)
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("label")]
+visible = false
+script = ExtResource("1_otmau")
+label = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_yr5n5")
+autowrap_mode = 3
