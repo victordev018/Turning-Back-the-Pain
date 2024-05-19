@@ -446,3 +446,8 @@ polygon = PackedVector2Array(17, -49, 37, -42, 47, -32, 48, -18, 48, 1, 24, -6, 
 vertex_colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
+
+[node name="RollRecoveryTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="RollRecoveryTimer" to="." method="_on_roll_recovery_timer_timeout"]
