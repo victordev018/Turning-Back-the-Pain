@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=6 format=3 uid="uid://srunw4fd2jyp"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
 [ext_resource type="PackedScene" uid="uid://dc1v68l2iw0h" path="res://scenes/terrain.tscn" id="2_gfq0q"]
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
-[ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/carta.tscn" id="4_3dfb4"]
+[ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 
 [node name="World-1" type="Node2D"]
+script = ExtResource("1_l55ne")
 
 [node name="Terrain" parent="." instance=ExtResource("2_gfq0q")]
 position = Vector2(1, 1)
@@ -17,3 +19,7 @@ layer_2/tile_data = PackedInt32Array(786457, 2, 6, 851993, 2, 7, 917529, 2, 8, 7
 z_index = 5
 position = Vector2(33, 562)
 
+[node name="CardArea" parent="." instance=ExtResource("4_3dfb4")]
+position = Vector2(131, 465)
+
+[node name="UI" parent="." instance=ExtResource("3_q4du6")]

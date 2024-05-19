@@ -444,3 +444,5 @@ position = Vector2(-6, -4)
 rotation = 0.0147984
 polygon = PackedVector2Array(17, -49, 37, -42, 47, -32, 48, -18, 48, 1, 24, -6, 28, -15, 32, -28)
 vertex_colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="Camera" type="Camera2D" parent="."]
