@@ -100,6 +100,7 @@ func _process(delta):
 	
 	if playerLife <= 0:
 		queue_free()
+		get_tree().reload_current_scene()
 
 func state_machine():
 	var state = "Idle"
@@ -116,6 +117,17 @@ func knockback(_knockbackDirection):
 	knockbackVector = _knockbackDirection * _move_speed * 50;
 	
 func take_damage():
-	print("-1 in life")
-	playerLife -= 1
+	if not animation_is_roll():
+		print("-1 in life")
+		playerLife -= 1
 
+## verifica se a animação atual é a roll:
+func animation_is_roll():
+	var animation_player = $AnimationPlayer
+	# se aanimação atual for alguma roll
+	if animation_player.current_animation in ["RollRight", "RollLeft"]:
+		return true;
+	return false;
+	
+	
+	
