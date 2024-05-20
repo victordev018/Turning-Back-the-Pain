@@ -14,6 +14,7 @@ var _direction : Vector2 = Vector2()
 ## Direção do Player
 var facing : int = 1
 var mpos: Vector2 = Vector2.ZERO
+var playerLife = 3
 
 func _ready():
 	set_process(true)
@@ -46,7 +47,7 @@ func _physics_process(delta):
 	if rolling:
 		velocity = _direction * _move_speed * 2
 	# Desativar colisão ao rolar. TODO..alterar para hurt box! S2 
-	var my_coll = get_node("Colision") as CollisionShape2D
+	var my_coll = get_node("HurtBox/Collision") as CollisionShape2D
 	my_coll.disabled = rolling
 	state_machine()
 	
@@ -88,3 +89,18 @@ func state_machine():
 
 func _on_roll_recovery_timer_timeout():
 	canRoll = true
+
+
+func knockback():
+	var vectorKnockback = _direction
+	if vectorKnockback.x > 0 and vectorKnockback.y > 0:
+		velocity = -vectorKnockback * _move_speed
+	print("Ainnn")
+	
+func take_damage():
+	playerLife -= 1
+
+func _on_area_2d_body_entered(body):
+	print("Bom dia")
+	take_damage()
+	knockback()
