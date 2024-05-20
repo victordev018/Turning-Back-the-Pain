@@ -408,6 +408,7 @@ region_rect = Rect2(1.73138, 1.97153, 12.6621, 9.89223)
 libraries = {
 "": SubResource("AnimationLibrary_xv3we")
 }
+speed_scale = 1.5
 
 [node name="RollSprite" type="Sprite2D" parent="."]
 visible = false
@@ -443,11 +444,10 @@ frame = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/Area2D"]
 position = Vector2(-5.93717, 8.58234)
 rotation = -0.443677
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_abuey")
 
 [node name="Polygon2D" type="Polygon2D" parent="SwordNode"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.470588)
 z_index = -1
 position = Vector2(-6, -4)
 rotation = 0.0147984

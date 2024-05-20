@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://v3ay7rjxxyl2"]
+[gd_scene load_steps=30 format=3 uid="uid://v3ay7rjxxyl2"]
 
 [ext_resource type="Script" path="res://scripts/EnemySkeleton.gd" id="1_fcqdo"]
 [ext_resource type="Texture2D" uid="uid://d0jcssfl1e2dn" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Skeleton Crew/Skeleton - Warrior/Death/Death-Sheet.png" id="2_acb0l"]
@@ -7,8 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c5a7557p1obab" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="5_ufisd"]
 [ext_resource type="Texture2D" uid="uid://dnuh87e38267n" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Bone/Bone.png" id="6_gqh6e"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nesjv"]
+size = Vector2(27, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okcwb"]
+size = Vector2(49.6361, 36.3402)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jejt"]
-size = Vector2(24, 5)
+size = Vector2(17, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16cca"]
 atlas = ExtResource("2_acb0l")
@@ -237,37 +243,17 @@ _data = {
 "RESET": SubResource("Animation_qspki")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_okcwb"]
-size = Vector2(49.6361, 43.2058)
-
-[node name="EnemySkeleton" type="Node2D"]
-
-[node name="Enemy" type="CharacterBody2D" parent="."]
+[node name="EnemySkeleton" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 5
 script = ExtResource("1_fcqdo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(-1, 15)
-shape = SubResource("RectangleShape2D_3jejt")
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
 
-[node name="SpriteSkeleton" type="AnimatedSprite2D" parent="Enemy"]
-sprite_frames = SubResource("SpriteFrames_4lgad")
-animation = &"Idle"
-autoplay = "Idle"
-frame_progress = 0.260764
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_xv3we")
-}
-
-[node name="HandSkeleton" type="Sprite2D" parent="Enemy"]
-position = Vector2(-13, 10)
-texture = ExtResource("5_ufisd")
-region_enabled = true
-region_rect = Rect2(2.11565, 35.8301, 11.012, 7.89993)
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-2.5, 0.5)
+shape = SubResource("RectangleShape2D_nesjv")
+debug_color = Color(0.890196, 0, 0.435294, 0.419608)
 
 [node name="SwordNode" type="Node2D" parent="."]
 position = Vector2(0, 7)
@@ -295,15 +281,38 @@ vframes = 4
 frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/Area2D"]
-position = Vector2(-2.14726, 11.5932)
+position = Vector2(-1.946, 12.0167)
 rotation = -0.443677
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_okcwb")
 
 [node name="Polygon2D" type="Polygon2D" parent="SwordNode"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.470588)
 z_index = -1
 position = Vector2(1, 8)
 rotation = 0.0147984
 polygon = PackedVector2Array(17, -49, 37, -42, 47, -32, 48, -18, 48, 1, 24, -6, 28, -15, 32, -28)
 vertex_colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 15)
+shape = SubResource("RectangleShape2D_3jejt")
+
+[node name="SpriteSkeleton" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4lgad")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.260764
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xv3we")
+}
+
+[node name="HandSkeleton" type="Sprite2D" parent="."]
+position = Vector2(-13, 10)
+texture = ExtResource("5_ufisd")
+region_enabled = true
+region_rect = Rect2(2.11565, 35.8301, 11.012, 7.89993)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
