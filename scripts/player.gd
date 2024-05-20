@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animation = $Animation
 ## Movimentação do Player
@@ -15,8 +16,12 @@ var _direction : Vector2 = Vector2()
 var facing : int = 1
 var mpos: Vector2 = Vector2.ZERO
 var playerLife = 3
+var knockbackVector = Vector2.ZERO;
+
+@onready var otherHand = get_node("Animation/Hand");
 
 func _ready():
+	Global.playerNode = self
 	set_process(true)
 	
 ## Ajustar direção para onde o Player está olhando.
@@ -52,18 +57,23 @@ func _physics_process(delta):
 	state_machine()
 	
 func _move() -> void:
+	var _sp = knockbackVector.length() * 0.80;
+	knockbackVector = knockbackVector.move_toward(Vector2.ZERO, _sp)
+	
 	if !rolling:
 		_direction = Vector2(
 			Input.get_axis("move_left", "move_rigth"),
 			Input.get_axis("move_up", "move_down")
 		)
-	if _direction != Vector2.ZERO:
+		
+	if _direction != Vector2.ZERO or knockbackVector.length() <= 0:
 		velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _acceleration)
 		velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _acceleration)
 		return
 		
 	velocity.x = lerp(velocity.x, _direction.normalized().x * _move_speed, _friction)
 	velocity.y = lerp(velocity.y, _direction.normalized().y * _move_speed, _friction)
+	velocity += knockbackVector
 	
 func _process(delta):
 	mpos = get_global_mouse_position();	
@@ -79,6 +89,13 @@ func _process(delta):
 		$RollRecoveryTimer.start()
 		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
 		$AnimationPlayer.play(_rollAnimation)
+		
+	# Mexer a mãozinha avulsa
+	var _ang = Time.get_ticks_msec() / 200.0
+	otherHand.position.y = 7 + sin(_ang) * 1.25;
+	
+	if playerLife <= 0:
+		queue_free()
 
 func state_machine():
 	var state = "Idle"
@@ -90,17 +107,11 @@ func state_machine():
 func _on_roll_recovery_timer_timeout():
 	canRoll = true
 
-
-func knockback():
-	var vectorKnockback = _direction
-	if vectorKnockback.x > 0 and vectorKnockback.y > 0:
-		velocity = -vectorKnockback * _move_speed
-	print("Ainnn")
+func knockback(_knockbackDirection):
+	print("Bom dia")
+	knockbackVector = _knockbackDirection * _move_speed * 50;
 	
 func take_damage():
+	print("Boa tarde")
 	playerLife -= 1
 
-func _on_area_2d_body_entered(body):
-	print("Bom dia")
-	take_damage()
-	knockback()
