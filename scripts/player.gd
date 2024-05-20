@@ -1,6 +1,10 @@
 extends CharacterBody2D
 class_name Player
 
+## inventário do player:
+@export_category("Player settings")
+@export var inv: Inventory;
+
 @onready var animation = $Animation
 ## Movimentação do Player
 ## Capacidade do player usar o rolamento
@@ -108,10 +112,10 @@ func _on_roll_recovery_timer_timeout():
 	canRoll = true
 
 func knockback(_knockbackDirection):
-	print("Bom dia")
+	print("+1 hit")
 	knockbackVector = _knockbackDirection * _move_speed * 50;
 	
 func take_damage():
-	print("Boa tarde")
+	print("-1 in life")
 	playerLife -= 1
 
