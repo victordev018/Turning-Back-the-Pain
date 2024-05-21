@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=12 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -6,8 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy_skeletonBACKUP.tscn" id="6_vdype"]
-[ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
 [ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/apple.tscn" id="7_7wyi8"]
+[ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
+[ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
+
+[sub_resource type="Gradient" id="Gradient_3vexf"]
+offsets = PackedFloat32Array(0, 0.506667, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0.458824, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_qt2dw"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="World-1" type="Node2D"]
 script = ExtResource("1_l55ne")
@@ -30,7 +38,6 @@ position = Vector2(55, 304)
 [node name="EnemySkeleton" parent="." instance=ExtResource("6_vdype")]
 position = Vector2(199, 388)
 
-
 [node name="FadeOut" parent="." instance=ExtResource("7_mfvhv")]
 visible = false
 
@@ -44,3 +51,34 @@ position = Vector2(637, 178)
 
 [node name="Apple" parent="Apples collectibles" instance=ExtResource("7_7wyi8")]
 position = Vector2(557, 221)
+
+[node name="RainParticles" type="CPUParticles2D" parent="."]
+position = Vector2(36, 465)
+amount = 200
+lifetime = 2.0
+randomness = 0.2
+lifetime_randomness = 0.4
+texture = ExtResource("9_3mr1y")
+emission_shape = 3
+emission_rect_extents = Vector2(320, 240)
+particle_flag_align_y = true
+direction = Vector2(-2, 32)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 69.0
+initial_velocity_max = 72.0
+scale_amount_min = 0.2
+scale_amount_max = 0.45
+color_ramp = SubResource("Gradient_3vexf")
+
+[node name="RainGroundParticles" type="CPUParticles2D" parent="."]
+position = Vector2(35, 563)
+amount = 60
+lifetime = 0.5
+explosiveness = 0.5
+lifetime_randomness = 0.05
+emission_shape = 3
+emission_rect_extents = Vector2(400, 240)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 12)
+color_ramp = SubResource("Gradient_qt2dw")
