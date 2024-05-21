@@ -3,8 +3,6 @@ extends Node
 var levelNode = null
 var uiNode = null
 var playerNode = null
-<<<<<<< Updated upstream
-=======
 var fadeInScene = preload("res://scenes/fade_in.tscn")
 var scenes : Dictionary = {
 	"title" : preload("res://scenes/title_screen.tscn"),
@@ -18,6 +16,4 @@ func changeScene(newScene : String):
 	add_child(transPatro)
 	
 	
-
 	
->>>>>>> Stashed changes
