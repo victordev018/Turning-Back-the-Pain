@@ -382,12 +382,12 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abuey"]
-size = Vector2(44.9276, 31.2113)
+size = Vector2(46.4624, 27.6056)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm08u"]
 size = Vector2(24, 32)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dswwk")
 inv = ExtResource("2_mwhd1")
 
@@ -402,7 +402,7 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="Hand" type="Sprite2D" parent="Animation"]
-position = Vector2(-13, 7)
+position = Vector2(-9, 5)
 texture = ExtResource("6_q1ahu")
 region_enabled = true
 region_rect = Rect2(1.73138, 1.97153, 12.6621, 9.89223)
@@ -423,13 +423,14 @@ hframes = 6
 frame = 1
 
 [node name="SwordNode" type="Node2D" parent="."]
+position = Vector2(0, -12)
 
 [node name="Area2D" type="Area2D" parent="SwordNode"]
 position = Vector2(33, -16)
 rotation = 1.85931
 
 [node name="SwordSprite" type="Sprite2D" parent="SwordNode/Area2D"]
-position = Vector2(10.1994, 16.7921)
+position = Vector2(21.7034, 13.3777)
 rotation = -1.87946
 texture = ExtResource("5_5mi12")
 centered = false
@@ -445,14 +446,14 @@ vframes = 4
 frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/Area2D"]
-position = Vector2(-5.93717, 8.58234)
-rotation = -0.443677
+position = Vector2(4.40373, 0.779224)
+rotation = -0.287166
 shape = SubResource("RectangleShape2D_abuey")
 
 [node name="Polygon2D" type="Polygon2D" parent="SwordNode"]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
-position = Vector2(-6, -4)
+position = Vector2(-4, 7)
 rotation = 0.0147984
 polygon = PackedVector2Array(17, -49, 37, -42, 47, -32, 48, -18, 48, 1, 24, -6, 28, -15, 32, -28)
 vertex_colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
@@ -476,5 +477,6 @@ offset_top = 14.0
 offset_right = 3.0
 offset_bottom = 54.0
 
+[connection signal="body_entered" from="SwordNode/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="RollRecoveryTimer" to="." method="_on_roll_recovery_timer_timeout"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_area_2d_body_entered"]
