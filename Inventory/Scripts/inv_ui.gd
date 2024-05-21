@@ -9,13 +9,15 @@ var is_open = false;
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children(); 
 
 func _ready():
-	uppdadat_slots()
+	# conectando sianal de update com a função uppdat_alot
+	inv.update.connect(uppdadat_slots);
+	uppdadat_slots();
 	close();
 	
 ## função para atualizar cada slot:
-func uppdadat_slots() -> void:
-	for item in range(inv.items.size()):
-		slots[item].uppdatIcon(inv.items[item])
+func uppdadat_slots():
+	for item in range(inv.slots.size()):
+		slots[item].uppdatIcon(inv.slots[item])
 		
 
 func _process(delta) -> void:
