@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr42jns1kpeo0"]
+
+[ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_fe2f8"]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_fe2f8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -20.0
+offset_right = 90.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(90, 0)
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "New Game+"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

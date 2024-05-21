@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=8 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy_skeletonBACKUP.tscn" id="6_vdype"]
+[ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
 
 [node name="World-1" type="Node2D"]
 script = ExtResource("1_l55ne")
@@ -27,3 +28,6 @@ position = Vector2(131, 465)
 
 [node name="EnemySkeleton" parent="." instance=ExtResource("6_vdype")]
 position = Vector2(199, 388)
+
+[node name="FadeOut" parent="." instance=ExtResource("7_mfvhv")]
+visible = false
