@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy_skeletonBACKUP.tscn" id="6_vdype"]
+[ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
 [ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/apple.tscn" id="7_7wyi8"]
 
 [node name="World-1" type="Node2D"]
@@ -28,6 +29,10 @@ position = Vector2(55, 304)
 
 [node name="EnemySkeleton" parent="." instance=ExtResource("6_vdype")]
 position = Vector2(199, 388)
+
+
+[node name="FadeOut" parent="." instance=ExtResource("7_mfvhv")]
+visible = false
 
 [node name="Apples collectibles" type="Node" parent="."]
 
