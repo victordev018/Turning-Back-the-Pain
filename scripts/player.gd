@@ -119,3 +119,7 @@ func take_damage():
 	print("-1 in life")
 	playerLife -= 1
 
+## função de coleta de item:
+func collect(item):
+	inv.insert(item);
+
