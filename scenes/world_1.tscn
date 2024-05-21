@@ -30,8 +30,6 @@ position = Vector2(55, 304)
 [node name="EnemySkeleton" parent="." instance=ExtResource("6_vdype")]
 position = Vector2(199, 388)
 
-<<<<<<< Updated upstream
-=======
 [node name="FadeOut" parent="." instance=ExtResource("7_mfvhv")]
 visible = false
 
