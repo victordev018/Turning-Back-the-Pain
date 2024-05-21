@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/FadeOut.gd" id="1_ewflj"]
 
 [node name="FadeOut" type="CanvasLayer"]
+layer = 32
 script = ExtResource("1_ewflj")
 
 [node name="ColorRect" type="ColorRect" parent="."]

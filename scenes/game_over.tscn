@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=3 uid="uid://cecskl8kew1fv"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_fjmr3"]
+[ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="2_kaist"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_fjmr3")
+
+[node name="GOscren" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="restartButon" type="Button" parent="GOscren"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Restart"
+
+[node name="mainMenuButon" type="Button" parent="GOscren"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"
+
+[node name="Container" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -90.0
+offset_right = 50.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -24.5
+offset_right = 48.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.105882, 0.835294, 1)
+text = "GAME OVER 
+BITCH"
+horizontal_alignment = 1
+
+[node name="FadeOut" parent="." instance=ExtResource("2_kaist")]
+
+[connection signal="pressed" from="GOscren/restartButon" to="." method="_on_restart_buton_pressed"]
+[connection signal="pressed" from="GOscren/mainMenuButon" to="." method="_on_main_menu_buton_pressed"]

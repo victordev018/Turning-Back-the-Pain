@@ -6,7 +6,8 @@ var playerNode = null
 var fadeInScene = preload("res://scenes/fade_in.tscn")
 var scenes : Dictionary = {
 	"title" : preload("res://scenes/title_screen.tscn"),
-	"world" : preload("res://scenes/world_1.tscn")
+	"world" : preload("res://scenes/world_1.tscn"),
+	"gameOver" : preload("res://scenes/game_over.tscn")
 }
 
 ## Transiciona para a cena desejada.
