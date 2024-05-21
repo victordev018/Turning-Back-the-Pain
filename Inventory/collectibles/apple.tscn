@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3krqwsnqecvh"]
+
+[ext_resource type="Script" path="res://Inventory/collectibles/apple.gd" id="1_3mcn0"]
+[ext_resource type="Texture2D" uid="uid://byds0dhdn0anf" path="res://Inventory/assets/apple-icon.png" id="1_ykda2"]
+[ext_resource type="Resource" uid="uid://v5706c06s0ku" path="res://Inventory/Items/apple.tres" id="2_ou8vu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uhr4"]
+radius = 3.0
+
+[node name="Apple" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_3mcn0")
+item = ExtResource("2_ou8vu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_1uhr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ykda2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -130,5 +130,6 @@ func animation_is_roll():
 		return true;
 	return false;
 
-func _on_area_2d_body_entered(body):
-	pass
+## função de coleta de item:
+func collect(item):
+	inv.insert(item);
