@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjm0728bvei1b"]
+[gd_scene load_steps=8 format=3 uid="uid://cjm0728bvei1b"]
 
 [ext_resource type="Script" path="res://Inventory/Scripts/inv_ui_slot.gd" id="1_6nha1"]
 [ext_resource type="Texture2D" uid="uid://bfpujgkhttgep" path="res://Inventory/assets/inventory-slot.png" id="1_rp85y"]
+[ext_resource type="Script" path="res://Inventory/Scripts/slotbutton.gd" id="4_g3em3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w6lh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xeiuo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwraw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4h84"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_color = Color(0, 0, 0, 0)
 
 [node name="Inv_ui_slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -34,3 +55,20 @@ offset_right = 17.0
 offset_bottom = 20.0
 scale = Vector2(0.5, 0.5)
 horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_6w6lh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xeiuo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mwraw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k4h84")
+script = ExtResource("4_g3em3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu2n57taqav38"]
+
+[ext_resource type="StyleBox" uid="uid://ddyt8dvjc12om" path="res://Inventory/theme_settings/inv_ui_slot.tres" id="1_xekbj"]
+[ext_resource type="Script" path="res://Inventory/Scripts/slotbutton.gd" id="2_0cg03"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko6vm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u83rp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+shadow_color = Color(0, 0, 0, 0)
+
+[node name="ButtonSlot" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ko6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u83rp")
+theme_override_styles/focus = ExtResource("1_xekbj")
+script = ExtResource("2_0cg03")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ko6vm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u83rp")
+theme_override_styles/focus = ExtResource("1_xekbj")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

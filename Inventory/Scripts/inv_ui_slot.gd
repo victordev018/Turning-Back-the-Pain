@@ -4,7 +4,7 @@ extends Panel
 @onready var icon_visual: Sprite2D = get_node("CenterContainer/Panel/item_icon");
 
 ## variável de contorle do texto do amount
-@onready var amount_text: Label = get_node("CenterContainer/Panel/Label")
+@onready var amount_text: Label = get_node("CenterContainer/Panel/Label");
 
 ## função para atualizar o ícone na grade do inventário:
 func uppdatIcon(slot: InvSlot) -> void:
@@ -17,3 +17,5 @@ func uppdatIcon(slot: InvSlot) -> void:
 			if slot.amount > 1:
 				amount_text.visible = true;
 			amount_text.text = str(slot.amount);
+			
+
