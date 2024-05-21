@@ -4,7 +4,6 @@ class_name Player
 ## inventário do player:
 @export_category("Player settings")
 @export var inv: Inventory;
-
 @onready var animation = $Animation
 ## Movimentação do Player
 ## Capacidade do player usar o rolamento
@@ -21,6 +20,8 @@ var facing : int = 1
 var mpos: Vector2 = Vector2.ZERO
 var playerLife = 3
 var knockbackVector = Vector2.ZERO;
+@onready var enemy_skeleton = null
+
 
 @onready var otherHand = get_node("Animation/Hand");
 
@@ -58,7 +59,6 @@ func _physics_process(delta):
 	# Desativar colisão ao rolar. TODO..alterar para hurt box! S2 
 	var my_coll = get_node("HurtBox/Collision") as CollisionShape2D
 	my_coll.disabled = rolling
-	state_machine()
 	
 func _move() -> void:
 	var _sp = knockbackVector.length() * 0.80;
@@ -80,6 +80,7 @@ func _move() -> void:
 	velocity += knockbackVector
 	
 func _process(delta):
+	state_machine()
 	mpos = get_global_mouse_position();	
 	manageFacing()
 	manageSword()
@@ -128,6 +129,6 @@ func animation_is_roll():
 	if animation_player.current_animation in ["RollRight", "RollLeft"]:
 		return true;
 	return false;
-	
-	
-	
+
+func _on_area_2d_body_entered(body):
+	pass
