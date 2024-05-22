@@ -30,8 +30,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ko6vm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_u83rp")
 theme_override_styles/focus = ExtResource("1_xekbj")
 script = ExtResource("2_0cg03")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ko6vm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_u83rp")
-theme_override_styles/focus = ExtResource("1_xekbj")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
