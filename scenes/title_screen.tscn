@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr42jns1kpeo0"]
+[gd_scene load_steps=5 format=3 uid="uid://cr42jns1kpeo0"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_fe2f8"]
+[ext_resource type="Texture2D" uid="uid://cmbnnlwjatvtu" path="res://assets/_image.png" id="2_4dyp4"]
 
 [sub_resource type="Gradient" id="Gradient_u5arq"]
 offsets = PackedFloat32Array(0.116564, 0.675325)
@@ -40,6 +41,7 @@ text = "New Game+"
 texture_filter = 1
 position = Vector2(180, 96)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4dyp4")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(1, 0)

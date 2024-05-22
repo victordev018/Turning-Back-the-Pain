@@ -3,12 +3,14 @@ extends CharacterBody2D
 @onready var player = null
 const SPEED = 60.0
 @onready var sprite_skeleton = $SpriteSkeleton
-var enemyLife = 3
-var knockbackVector : Vector2 = Vector2.ZERO
+@onready var healthbar = $HealthBar
+var health : int = 6
+
+var damage: int = 1;
 
 func _ready():
 	player = Global.playerNode
-	pass
+	healthbar.init_health(health)
 
 func _physics_process(delta):
 	#follow_player(delta)
@@ -21,11 +23,8 @@ func _process(delta):
 		sprite_skeleton.flip_h = true
 	state_machine()
 	
-func _on_hit_box_body_entered(body: Player):
-	var _vector = global_position.direction_to(player.global_position);
-	body.knockback(_vector);
-	body.take_damage();
-
+	
+	
 ## Atualiza a velocidade de acordo com a direção do player
 func follow_player(delta):
 	#global_position = lerp(enemy_skeleton.global_position, player.global_position, 2)
@@ -35,19 +34,19 @@ func follow_player(delta):
 
 func state_machine():
 	var state = "Idle";
-	if enemyLife <= 0:
-		state = "Death";
-		sprite_skeleton.play("Death");
-		await sprite_skeleton.animation_finished();
-		queue_free();
-	elif velocity.length() > 0:
+	##if enemyLife <= 0:
+		#state = "Death";
+		#sprite_skeleton.play("Death");
+		#await sprite_skeleton.animation_finished();
+		#queue_free();
+	if velocity.length() > 0:
 		state = "Run";
 	sprite_skeleton.play(state);
 
-func knockback(_knockbackDirection):
-	print("+1 hit")
-	knockbackVector = _knockbackDirection * SPEED * 50;
-	
-func take_damage():
-		print("-1 in life")
-		enemyLife -= 1
+#func knockback(_knockbackDirection):
+	#print("+1 hit")
+	#knockbackVector = _knockbackDirection * SPEED * 50;
+	#
+#func take_damage():
+		#print("-1 in life")
+		#enemyLife -= 1

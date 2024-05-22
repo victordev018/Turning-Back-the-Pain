@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cgqkpqbj3nt8d"]
+[gd_scene load_steps=36 format=3 uid="uid://cgqkpqbj3nt8d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dswwk"]
 [ext_resource type="Texture2D" uid="uid://cdr4ug0sjhnnl" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_ks538"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c4wr42gnckiin" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Wood/Wood.png" id="5_5mi12"]
 [ext_resource type="Texture2D" uid="uid://c5a7557p1obab" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="6_q1ahu"]
 [ext_resource type="PackedScene" uid="uid://bfs7slhpjyt6b" path="res://Inventory/Ui inventory/inv_ui.tscn" id="8_4wfa7"]
+[ext_resource type="PackedScene" uid="uid://b62g28661cvu4" path="res://scenes/health_bar.tscn" id="9_ka2bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofdwy"]
 size = Vector2(21, 4)
@@ -160,7 +161,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SwordNode/Area2D/SwordSprite:rotation")
+tracks/0/path = NodePath("SwordNode/HitBoxPLayer/SwordSprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -184,7 +185,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SwordNode/Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("SwordNode/HitBoxPLayer/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -223,7 +224,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SwordNode/Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("SwordNode/HitBoxPLayer/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -235,7 +236,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SwordNode/Area2D/SwordSprite:rotation")
+tracks/3/path = NodePath("SwordNode/HitBoxPLayer/SwordSprite:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -398,8 +399,9 @@ shape = SubResource("RectangleShape2D_ofdwy")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_yh781")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
+frame_progress = 0.960349
 
 [node name="Hand" type="Sprite2D" parent="Animation"]
 position = Vector2(-9, 5)
@@ -425,11 +427,13 @@ frame = 1
 [node name="SwordNode" type="Node2D" parent="."]
 position = Vector2(0, -12)
 
-[node name="Area2D" type="Area2D" parent="SwordNode"]
+[node name="HitBoxPLayer" type="Area2D" parent="SwordNode"]
 position = Vector2(33, -16)
 rotation = 1.85931
+collision_layer = 48
+collision_mask = 48
 
-[node name="SwordSprite" type="Sprite2D" parent="SwordNode/Area2D"]
+[node name="SwordSprite" type="Sprite2D" parent="SwordNode/HitBoxPLayer"]
 position = Vector2(21.7034, 13.3777)
 rotation = -1.87946
 texture = ExtResource("5_5mi12")
@@ -438,20 +442,20 @@ offset = Vector2(-7, -39)
 region_enabled = true
 region_rect = Rect2(1, 0, 13.7421, 46)
 
-[node name="Sprite2D" type="Sprite2D" parent="SwordNode/Area2D/SwordSprite"]
+[node name="Sprite2D" type="Sprite2D" parent="SwordNode/HitBoxPLayer/SwordSprite"]
 position = Vector2(-1, 1)
 texture = ExtResource("6_q1ahu")
 hframes = 2
 vframes = 4
 frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/HitBoxPLayer"]
 position = Vector2(4.40373, 0.779224)
 rotation = -0.287166
 shape = SubResource("RectangleShape2D_abuey")
 
 [node name="Polygon2D" type="Polygon2D" parent="SwordNode"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.470588)
 z_index = -1
 position = Vector2(-4, 7)
 rotation = 0.0147984
@@ -465,7 +469,8 @@ wait_time = 3.0
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(-1, -15)
-collision_mask = 4
+collision_layer = 48
+collision_mask = 48
 
 [node name="Collision" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_tm08u")
@@ -477,6 +482,12 @@ offset_top = 14.0
 offset_right = 3.0
 offset_bottom = 54.0
 
-[connection signal="body_entered" from="SwordNode/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="HealthBar" parent="." instance=ExtResource("9_ka2bh")]
+offset_left = -168.0
+offset_top = -94.0
+offset_right = 72.0
+offset_bottom = -67.0
+scale = Vector2(0.472683, 0.362751)
+
 [connection signal="timeout" from="RollRecoveryTimer" to="." method="_on_roll_recovery_timer_timeout"]
-[connection signal="body_entered" from="HurtBox" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

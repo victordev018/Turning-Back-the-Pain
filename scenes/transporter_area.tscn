@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfff07e88i514"]
+
+[ext_resource type="Script" path="res://scripts/TransporterArea.gd" id="1_1w20b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4ehp"]
+size = Vector2(32, 64)
+
+[node name="TransporterArea" type="Area2D"]
+script = ExtResource("1_1w20b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o4ehp")
+debug_color = Color(0.817347, 0.149797, 0.908774, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

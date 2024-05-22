@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=14 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="8_kab02"]
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
 [ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="9_nf26r"]
+[ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_ongtp"]
 
 [sub_resource type="Gradient" id="Gradient_3vexf"]
 offsets = PackedFloat32Array(0, 0.506667, 1)
@@ -20,6 +21,8 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="World-1" type="Node2D"]
 script = ExtResource("1_l55ne")
+metadata/_edit_horizontal_guides_ = [307.0]
+metadata/_edit_vertical_guides_ = [1108.0]
 
 [node name="Terrain" parent="." instance=ExtResource("2_gfq0q")]
 position = Vector2(1, 1)
@@ -88,3 +91,8 @@ emission_rect_extents = Vector2(400, 240)
 direction = Vector2(0, -1)
 gravity = Vector2(0, 12)
 color_ramp = SubResource("Gradient_qt2dw")
+
+[node name="TransporterArea" parent="." instance=ExtResource("11_ongtp")]
+position = Vector2(1134, 306)
+destinyScene = "world2"
+destinyPosition = Vector2(69, 320)

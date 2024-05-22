@@ -18,16 +18,23 @@ var _direction : Vector2 = Vector2()
 ## Direção do Player
 var facing : int = 1
 var mpos: Vector2 = Vector2.ZERO
-var playerLife = 3
+var health = 6
 var knockbackVector = Vector2.ZERO;
 @onready var enemy_skeleton = null
 
-
 @onready var otherHand = get_node("Animation/Hand");
+
+@onready var healthBar = get_node("HealthBar") as HealthBar
+
+var dead = false;
+
+## Valor da intensidade do tom vermelho do Player, aumentado ao levar dano.
+var redAmount: float = 0.0;
 
 func _ready():
 	Global.playerNode = self
 	set_process(true)
+	healthBar.init_health(health)
 
 ## Ajustar direção para onde o Player está olhando.
 func manageFacing():
@@ -47,7 +54,7 @@ func manageSword():
 	$RollSprite.scale.x = facing;
 
 func _physics_process(delta):
-	var _canMove: bool = !Global.uiNode.visible;
+	var _canMove: bool = !Global.uiNode.visible && !dead;
 	rolling = $AnimationPlayer.current_animation in ["RollRight", "RollLeft"]
 	if _canMove:
 		_move()
@@ -84,6 +91,12 @@ func _process(delta):
 	mpos = get_global_mouse_position();
 	manageFacing()
 	manageSword()
+	
+	# Regular tom vermelho
+	$Animation.modulate.g = 1.0 - redAmount;
+	$Animation.modulate.b = 1.0 - redAmount;
+	redAmount = move_toward(redAmount, 0.0, 0.0250);
+	
 	# Atacar
 	if Input.is_action_just_pressed("attack") and !rolling:
 		$AnimationPlayer.play("Attack")
@@ -98,12 +111,18 @@ func _process(delta):
 	# Mexer a mãozinha avulsa
 	var _ang = Time.get_ticks_msec() / 200.0
 	otherHand.position.y = 7 + sin(_ang) * 1.25;
+	if dead: otherHand.position.y = 12;
 
-	if playerLife <= 0:
-		animation.play("Death")
+	if dead:
+		$SwordNode.visible = false;
+		velocity = Vector2.ZERO
+		await  get_tree().create_timer(1).timeout
 		Global.changeScene("gameOver")
 
 func state_machine():
+	if dead:
+		animation.play("Death")
+		return
 	var state = "Idle"
 	if velocity.length() > 0:
 		state = "Run"
@@ -117,10 +136,6 @@ func knockback(_knockbackDirection):
 	print("+1 hit")
 	knockbackVector = _knockbackDirection * _move_speed * 50;
 
-func take_damage():
-	if not animation_is_roll():
-		print("-1 in life")
-		playerLife -= 1
 
 ## verifica se a animação atual é a roll:
 func animation_is_roll():
@@ -130,6 +145,21 @@ func animation_is_roll():
 		return true;
 	return false;
 
-## função de coleta de item:
+## função de coleta de item:	redAmount = move_toward(redAmount, 0.0, 0.0250);
 func collect(item):
 	inv.insert(item);
+
+## Reduz uma quantidade de HP
+func takeDamage(amount):
+	print("[PLAYER] - Dano recebido: %s." % [amount])
+	health -= amount;
+	healthBar.setHealth(health)
+	redAmount = 1.0;
+	dead = health <= 0;
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "HitBox" or area.name == "HitBox2":
+		print("Player encostou numa hitbox.")
+		var _dmg = area.get_parent().damage;
+		takeDamage(_dmg)
+		
