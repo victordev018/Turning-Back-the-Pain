@@ -47,11 +47,11 @@ func takeDamage(amount):
 	healthBar.setHealth(health);
 	redAmount = 1.0;
 	dead = health <= 0;
-	
+
+
 func _on_hurt_box_area_entered(area):
 	if area.name == "HitBoxPlayer":
 		print("Enemy encostou numa hitbox.")
 		var _player: Player = area.get_parent().get_parent();
 		var _dmg = _player.damage;
 		takeDamage(_dmg)
-	
