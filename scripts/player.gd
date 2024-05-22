@@ -16,14 +16,13 @@ var _direction : Vector2 = Vector2()
 ## Referência do nó da Espada
 @onready var mySword = get_node("SwordNode")
 ## Direção do Player
+var damage: int = 1;
 var facing : int = 1
 var mpos: Vector2 = Vector2.ZERO
 var health = 6
 var knockbackVector = Vector2.ZERO;
 @onready var enemy_skeleton = null
-
 @onready var otherHand = get_node("Animation/Hand");
-
 @onready var healthBar = get_node("HealthBar") as HealthBar
 
 var dead = false;

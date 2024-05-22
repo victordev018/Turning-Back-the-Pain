@@ -15,7 +15,7 @@ func useItem(itemKey: String) -> void:
 	
 ## função acionada quando consome uma porção.
 func usePortion() -> bool:
-	print("Usei a porção!");
+	print_rich("[color=green]Usei a poção!");
 	return true;
 
 ## função acionada quando consome uma maçã.

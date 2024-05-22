@@ -145,6 +145,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rg4ny"]
+size = Vector2(24, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okcwb"]
 size = Vector2(49.6361, 36.3402)
@@ -288,20 +289,19 @@ collision_layer = 48
 collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_rg4ny")
 debug_color = Color(0.689567, 0.452056, 0.565898, 0.42)
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(39, -1)
 rotation = 1.85931
-scale = Vector2(1, 1)
 collision_layer = 48
 collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(-1.946, 12.0167)
 rotation = -0.443677
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_okcwb")
 
 [node name="SwordSprite" type="Sprite2D" parent="HitBox"]
@@ -333,3 +333,5 @@ vertex_colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 libraries = {
 "": SubResource("AnimationLibrary_xv3we")
 }
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -1,12 +1,15 @@
 
 extends CharacterBody2D
 @onready var player = null
-const SPEED = 60.0
+const SPEED = 60.0;
 @onready var sprite_skeleton = $SpriteSkeleton
 @onready var healthbar = $HealthBar
-var health : int = 6
+var health : int = 6;
 
 var damage: int = 1;
+@onready var healthBar = get_node("HealthBar") as HealthBar
+var redAmount: float = 0.0;
+var dead = false
 
 func _ready():
 	player = Global.playerNode
@@ -27,26 +30,28 @@ func _process(delta):
 	
 ## Atualiza a velocidade de acordo com a direção do player
 func follow_player(delta):
-	#global_position = lerp(enemy_skeleton.global_position, player.global_position, 2)
 	# TODO: Checar se existe a instancia do player, antes de tentar mover até ele.
 	var _vector = global_position.direction_to(player.global_position);
 	velocity = _vector * SPEED;
 
 func state_machine():
 	var state = "Idle";
-	##if enemyLife <= 0:
-		#state = "Death";
-		#sprite_skeleton.play("Death");
-		#await sprite_skeleton.animation_finished();
-		#queue_free();
 	if velocity.length() > 0:
 		state = "Run";
 	sprite_skeleton.play(state);
 
-#func knockback(_knockbackDirection):
-	#print("+1 hit")
-	#knockbackVector = _knockbackDirection * SPEED * 50;
-	#
-#func take_damage():
-		#print("-1 in life")
-		#enemyLife -= 1
+
+func takeDamage(amount):
+	print("[PLAYER] - Dano recebido: %s." % [amount])
+	health -= amount;
+	healthBar.setHealth(health);
+	redAmount = 1.0;
+	dead = health <= 0;
+	
+func _on_hurt_box_area_entered(area):
+	if area.name == "HitBoxPlayer":
+		print("Enemy encostou numa hitbox.")
+		var _player: Player = area.get_parent().get_parent();
+		var _dmg = _player.damage;
+		takeDamage(_dmg)
+	
