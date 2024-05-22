@@ -161,7 +161,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SwordNode/HitBoxPlayer/SwordSprite:rotation")
+tracks/0/path = NodePath("SwordNode/HitBoxPLayer/SwordSprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -185,7 +185,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SwordNode/HitBoxPlayer/CollisionShape2D:disabled")
+tracks/2/path = NodePath("SwordNode/HitBoxPLayer/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -224,7 +224,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SwordNode/HitBoxPlayer/CollisionShape2D:disabled")
+tracks/2/path = NodePath("SwordNode/HitBoxPLayer/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -236,7 +236,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SwordNode/HitBoxPlayer/SwordSprite:rotation")
+tracks/3/path = NodePath("SwordNode/HitBoxPLayer/SwordSprite:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -399,8 +399,9 @@ shape = SubResource("RectangleShape2D_ofdwy")
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_yh781")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
+frame_progress = 0.960349
 
 [node name="Hand" type="Sprite2D" parent="Animation"]
 position = Vector2(-9, 5)
@@ -426,13 +427,13 @@ frame = 1
 [node name="SwordNode" type="Node2D" parent="."]
 position = Vector2(0, -12)
 
-[node name="HitBoxPlayer" type="Area2D" parent="SwordNode"]
+[node name="HitBoxPLayer" type="Area2D" parent="SwordNode"]
 position = Vector2(33, -16)
 rotation = 1.85931
 collision_layer = 48
 collision_mask = 48
 
-[node name="SwordSprite" type="Sprite2D" parent="SwordNode/HitBoxPlayer"]
+[node name="SwordSprite" type="Sprite2D" parent="SwordNode/HitBoxPLayer"]
 position = Vector2(21.7034, 13.3777)
 rotation = -1.87946
 texture = ExtResource("5_5mi12")
@@ -441,14 +442,14 @@ offset = Vector2(-7, -39)
 region_enabled = true
 region_rect = Rect2(1, 0, 13.7421, 46)
 
-[node name="Sprite2D" type="Sprite2D" parent="SwordNode/HitBoxPlayer/SwordSprite"]
+[node name="Sprite2D" type="Sprite2D" parent="SwordNode/HitBoxPLayer/SwordSprite"]
 position = Vector2(-1, 1)
 texture = ExtResource("6_q1ahu")
 hframes = 2
 vframes = 4
 frame = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/HitBoxPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/HitBoxPLayer"]
 position = Vector2(4.40373, 0.779224)
 rotation = -0.287166
 shape = SubResource("RectangleShape2D_abuey")
