@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_ip6p0")
-name = "Apple"
+name = "apple"
 texture = ExtResource("2_so8p5")

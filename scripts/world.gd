@@ -10,5 +10,4 @@ func _process(delta):
 	var _playerPos = Global.playerNode.global_position
 	$RainParticles.global_position = Vector2(_playerPos.x, _playerPos.y - 180)
 	$RainGroundParticles.global_position = Vector2(_playerPos.x, _playerPos.y)
-	pass
 	

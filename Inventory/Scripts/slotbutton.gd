@@ -1,12 +1,6 @@
 extends Button
 
-## ativando e desativando o butão do slot
-func _on_mouse_entered():
-	disabled = false;
-	
-func _on_mouse_exited():
-	disabled = true;
-
-## quando alguma caixa do slot for clicada:
+## Acionado quando alguma caixa de slot for clicada:
 func _on_pressed():
-	print("cliquei")
+	print("cliquei no item: ", get_parent().myId);
+	ItemManager.useItem(get_parent().myId);

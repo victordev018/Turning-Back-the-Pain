@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	follow_player(delta)
+	#follow_player(delta)
 	move_and_slide()
 	
 func _process(delta):

@@ -1,8 +1,9 @@
 extends Resource
+class_name InvItem
+## Recurso que representa os itens utilizados no jogo
 
-class_name InvItem;
-
-## atributos do nosso item:
 @export_category("Attributes")
-@export var name: String = "";
-@export var texture: Texture2D;
+## Nome do item
+@export var name: String = ""
+## Textura associada ao item
+@export var texture: Texture2D

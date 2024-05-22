@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=13 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy_skeletonBACKUP.tscn" id="6_vdype"]
-[ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/apple.tscn" id="7_7wyi8"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
-
+[ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="8_kab02"]
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
+[ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="9_nf26r"]
 
 [sub_resource type="Gradient" id="Gradient_3vexf"]
 offsets = PackedFloat32Array(0, 0.506667, 1)
@@ -42,15 +42,20 @@ position = Vector2(199, 388)
 [node name="FadeOut" parent="." instance=ExtResource("7_mfvhv")]
 visible = false
 
-[node name="Apples collectibles" type="Node" parent="."]
+[node name="ItemsCollectibles" type="Node" parent="."]
 
-[node name="Apple3" parent="Apples collectibles" instance=ExtResource("7_7wyi8")]
-position = Vector2(685, 234)
+[node name="ItemArea1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(685, 213)
 
-[node name="Apple2" parent="Apples collectibles" instance=ExtResource("7_7wyi8")]
+[node name="ItemArea2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
 position = Vector2(637, 178)
+item = ExtResource("9_nf26r")
 
-[node name="Apple" parent="Apples collectibles" instance=ExtResource("7_7wyi8")]
+[node name="ItemArea3" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(136, 463)
+item = ExtResource("9_nf26r")
+
+[node name="ItemArea4" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
 position = Vector2(557, 221)
 
 [node name="RainParticles" type="CPUParticles2D" parent="."]
