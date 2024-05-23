@@ -57,28 +57,28 @@ visible = false
 
 [node name="ItemsCollectibles" type="Node" parent="."]
 
-[node name="ItemArea5" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(138, 364)
+[node name="potionCure1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(80, 340)
+item = ExtResource("9_nf26r")
+
+[node name="potionCure2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(118, 340)
+item = ExtResource("9_nf26r")
+
+[node name="potonVelocity1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(77, 394)
+item = ExtResource("11_v6y13")
+
+[node name="potonVelocity2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(120, 393)
+item = ExtResource("11_v6y13")
+
+[node name="potionForce1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(20, 403)
 item = ExtResource("10_ht2co")
 
-[node name="ItemArea2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(96, 429)
-item = ExtResource("9_nf26r")
-
-[node name="ItemArea3" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(138, 457)
-item = ExtResource("9_nf26r")
-
-[node name="ItemArea7" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(61, 459)
-item = ExtResource("11_v6y13")
-
-[node name="ItemArea8" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(24, 434)
-item = ExtResource("11_v6y13")
-
-[node name="ItemArea4" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(107, 351)
+[node name="potionForce2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
+position = Vector2(20, 436)
 item = ExtResource("10_ht2co")
 
 [node name="RainParticles" type="CPUParticles2D" parent="."]

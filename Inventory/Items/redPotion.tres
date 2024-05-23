@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_5310w")
-name = "potionForce"
+name = "potionCure"
 texture = ExtResource("2_sdy6w")

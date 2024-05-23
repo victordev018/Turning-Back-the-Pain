@@ -42,7 +42,12 @@ func usePotionVelocity() -> bool:
 	return true;
 
 ## Função para aumentar dano da espada:
-
+func usePotionForce() -> bool:
+	if Global.playerNode.damageBuff:
+		print("Spada já esta com força aumentada!")
+		return false;
+	Global.playerNode.damageBuff = true;
+	return true;
 
 ## função acionada quando consome uma maçã.
 func useApple() -> bool:
