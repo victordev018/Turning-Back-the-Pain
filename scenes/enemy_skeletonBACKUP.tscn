@@ -299,7 +299,6 @@ collision_mask = 48
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/HitBox"]
 position = Vector2(-1.89054, 20.0942)
 rotation = -0.443677
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_okcwb")
 
 [node name="SwordSprite" type="Sprite2D" parent="SwordNode/HitBox"]

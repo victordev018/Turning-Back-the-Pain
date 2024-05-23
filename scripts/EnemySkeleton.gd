@@ -1,13 +1,11 @@
-
 extends CharacterBody2D
 @onready var player = null
-const SPEED = 60.0;
+@export  var SPEED = 60.0;
 @onready var sprite_skeleton = $SpriteSkeleton
 @onready var healthbar = $HealthBar
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer;
-var health : int = 6;
-
-var damage: int = 1;
+@export var health : int = 6;
+@export var damage: int = 1;
 @onready var healthBar = get_node("HealthBar") as HealthBar
 var redAmount: float = 0.0;
 var dead = false
