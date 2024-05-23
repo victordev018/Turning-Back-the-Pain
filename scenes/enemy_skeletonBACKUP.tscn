@@ -233,7 +233,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okcwb"]
-size = Vector2(49.6361, 36.3402)
+size = Vector2(42.8015, 21.7017)
 
 [node name="EnemySkeleton" type="CharacterBody2D"]
 collision_layer = 4
@@ -297,8 +297,9 @@ collision_layer = 48
 collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordNode/HitBox"]
-position = Vector2(-1.946, 12.0167)
+position = Vector2(-1.89054, 20.0942)
 rotation = -0.443677
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_okcwb")
 
 [node name="SwordSprite" type="Sprite2D" parent="SwordNode/HitBox"]

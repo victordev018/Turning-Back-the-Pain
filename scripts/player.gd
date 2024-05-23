@@ -30,9 +30,14 @@ var health = 6
 var knockbackVector = Vector2.ZERO;
 @onready var enemy_skeleton = null
 @onready var otherHand = get_node("Animation/Hand");
-@onready var healthBar = get_node("HealthBar") as HealthBar
-
+@onready var healthBar = get_node("Panels/HealthBar") as HealthBar
 var dead = false;
+
+# Camera variables
+@export var camera_limit := Vector2(1000, 1000);
+@onready var camera: Camera2D = get_node("Camera")
+
+
 
 ## Valor da intensidade do tom vermelho do Player, aumentado ao levar dano.
 var redAmount: float = 0.0;
@@ -45,7 +50,13 @@ func _ready():
 	Global.playerNode = self;
 	set_process(true);
 	health = Global.playerHealth;
-	healthBar.init_health(health);
+	healthBar.init_health(health)
+	# Definir limites da camera
+	camera.limit_left = 0;
+	camera.limit_top = 0;
+	camera.limit_right = camera_limit.x;
+	camera.limit_bottom = camera_limit.y;
+	
 
 ## Ajustar direção para onde o Player está olhando.
 func manageFacing():
