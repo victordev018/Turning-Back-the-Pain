@@ -55,20 +55,6 @@ visible = false
 
 [node name="ItemsCollectibles" type="Node" parent="."]
 
-[node name="ItemArea1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(685, 213)
-
-[node name="ItemArea2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(637, 178)
-item = ExtResource("9_nf26r")
-
-[node name="ItemArea3" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(136, 463)
-item = ExtResource("9_nf26r")
-
-[node name="ItemArea4" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(557, 221)
-
 [node name="RainParticles" type="CPUParticles2D" parent="."]
 position = Vector2(36, 465)
 amount = 200

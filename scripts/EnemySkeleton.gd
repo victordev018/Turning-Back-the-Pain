@@ -55,7 +55,7 @@ func state_machine():
 
 
 func takeDamage(amount):
-	print("[PLAYER] - Dano recebido: %s." % [amount])
+	print("[ENEMY] - Dano recebido: %s." % [amount])
 	health -= amount;
 	healthBar.setHealth(health);
 	redAmount = 1.0;
