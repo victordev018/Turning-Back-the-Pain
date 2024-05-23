@@ -29,11 +29,12 @@ func _input(event):
 		show_text_label();
 	
 func show_text_label() -> void:
-	if index_label_current < history.size():
-		label.text = history[index_label_current]
-	else:
-		print("Finisgh History...")
-		canvasLayer.visible = false;
-		index_label_current = 0;
+	if label != null:
+		if index_label_current < history.size():
+			label.text = history[index_label_current]
+		else:
+			print("Finisgh History...")
+			canvasLayer.visible = false;
+			index_label_current = 0;
 		
 	
