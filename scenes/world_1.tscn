@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=15 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="8_kab02"]
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
 [ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="9_nf26r"]
-[ext_resource type="Resource" uid="uid://bmjnhx7s8q03d" path="res://Inventory/Items/brownPotion.tres" id="10_ht2co"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_ongtp"]
-[ext_resource type="Resource" uid="uid://cwqaa0csygn31" path="res://Inventory/Items/bluePotion.tres" id="11_v6y13"]
 
 [sub_resource type="Gradient" id="Gradient_3vexf"]
 offsets = PackedFloat32Array(0, 0.506667, 1)
@@ -56,30 +54,6 @@ position = Vector2(199, 388)
 visible = false
 
 [node name="ItemsCollectibles" type="Node" parent="."]
-
-[node name="potionCure1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(80, 340)
-item = ExtResource("9_nf26r")
-
-[node name="potionCure2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(118, 340)
-item = ExtResource("9_nf26r")
-
-[node name="potonVelocity1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(77, 394)
-item = ExtResource("11_v6y13")
-
-[node name="potonVelocity2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(120, 393)
-item = ExtResource("11_v6y13")
-
-[node name="potionForce1" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(20, 403)
-item = ExtResource("10_ht2co")
-
-[node name="potionForce2" parent="ItemsCollectibles" instance=ExtResource("8_kab02")]
-position = Vector2(20, 436)
-item = ExtResource("10_ht2co")
 
 [node name="RainParticles" type="CPUParticles2D" parent="."]
 position = Vector2(36, 465)
