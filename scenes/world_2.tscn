@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://s5xj1sb70ook"]
+[gd_scene load_steps=16 format=3 uid="uid://s5xj1sb70ook"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_rclyr"]
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="2_r64ua"]
@@ -2308,6 +2308,14 @@ sources/0 = SubResource("TileSetAtlasSource_k0tq8")
 sources/1 = SubResource("TileSetAtlasSource_nq2kq")
 sources/2 = SubResource("TileSetAtlasSource_ae5sm")
 
+[sub_resource type="Curve" id="Curve_8jk2u"]
+_data = [Vector2(0.150396, 0.980163), 0.0, 0.0, 0, 0, Vector2(0.957784, 0.517294), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_35wcp"]
+offsets = PackedFloat32Array(0, 0.473333, 0.833333, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.631373, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0)
+
 [node name="World-2" type="Node2D"]
 script = ExtResource("1_rclyr")
 metadata/_edit_vertical_guides_ = [69.0]
@@ -2342,3 +2350,65 @@ rotation = -1.54711
 scale = Vector2(0.802675, 0.564228)
 destinyScene = "world"
 destinyPosition = Vector2(1050, 307)
+
+[node name="LavaParticlesNode" type="Node2D" parent="."]
+
+[node name="LavaParticles01" type="CPUParticles2D" parent="LavaParticlesNode"]
+position = Vector2(689, 478)
+amount = 12
+emission_shape = 3
+emission_rect_extents = Vector2(48, 32)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8jk2u")
+color = Color(1, 1, 0.956863, 1)
+color_ramp = SubResource("Gradient_35wcp")
+
+[node name="LavaParticles02" type="CPUParticles2D" parent="LavaParticlesNode"]
+position = Vector2(921, 495)
+amount = 12
+emission_shape = 3
+emission_rect_extents = Vector2(30, 32)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8jk2u")
+color = Color(1, 1, 0.956863, 1)
+color_ramp = SubResource("Gradient_35wcp")
+
+[node name="LavaParticles03" type="CPUParticles2D" parent="LavaParticlesNode"]
+position = Vector2(747, 673)
+amount = 12
+emission_shape = 3
+emission_rect_extents = Vector2(16, 28)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8jk2u")
+color = Color(1, 1, 0.956863, 1)
+color_ramp = SubResource("Gradient_35wcp")
+
+[node name="LavaParticles04" type="CPUParticles2D" parent="LavaParticlesNode"]
+position = Vector2(904, 651)
+amount = 12
+emission_shape = 3
+emission_rect_extents = Vector2(48, 32)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_8jk2u")
+color = Color(1, 1, 0.956863, 1)
+color_ramp = SubResource("Gradient_35wcp")

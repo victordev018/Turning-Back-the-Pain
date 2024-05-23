@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 60.0;
 @onready var sprite_skeleton = $SpriteSkeleton
 @onready var healthbar = $HealthBar
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer;
 var health : int = 6;
 
 var damage: int = 1;
@@ -16,7 +17,7 @@ func _ready():
 	healthbar.init_health(health)
 
 func _physics_process(delta):
-	#follow_player(delta)
+	follow_player(delta)
 	move_and_slide()
 	
 func _process(delta):
@@ -26,13 +27,25 @@ func _process(delta):
 		sprite_skeleton.flip_h = true
 	state_machine()
 	
-	
-	
 ## Atualiza a velocidade de acordo com a direção do player
 func follow_player(delta):
 	# TODO: Checar se existe a instancia do player, antes de tentar mover até ele.
+	var _distance = global_position.distance_to(player.global_position);
 	var _vector = global_position.direction_to(player.global_position);
-	velocity = _vector * SPEED;
+	
+	if _distance >= 36:
+		velocity = _vector * SPEED;
+	elif _distance >= 12:
+		if $AttackTimer.is_stopped():
+			$AttackTimer.start()
+	else:
+		velocity = Vector2.ZERO;
+	
+	var _ang = _vector.angle()
+	#_ang = rad_to_deg(_ang);
+	$SwordNode.rotation = _ang;
+	
+	
 
 func state_machine():
 	var state = "Idle";
@@ -55,3 +68,10 @@ func _on_hurt_box_area_entered(area):
 		var _player: Player = area.get_parent().get_parent();
 		var _dmg = _player.damage;
 		takeDamage(_dmg)
+
+func attack():
+	animationPlayer.play("Attack")
+
+func _on_attack_timer_timeout():
+	attack()
+	pass # Replace with function body.

@@ -165,7 +165,9 @@ func takeDamage(amount):
 func _on_hurt_box_area_entered(area):
 	if area.name == "HitBox" or area.name == "HitBox2":
 		print("Player encostou numa hitbox.")
-		var _dmg = area.get_parent().damage;
+		# TODO: Obter valor de [damage] a partir do Node do Esqueleto.
+		# var _dmg = area.get_parent().damage;
+		var _dmg = 1;
 		takeDamage(_dmg)
 		
 
