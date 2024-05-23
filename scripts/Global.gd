@@ -17,6 +17,7 @@ var scenes : Dictionary = {
 	"title" : preload("res://scenes/title_screen.tscn"),
 	"world" : preload("res://scenes/world_1.tscn"),
 	"world2": preload("res://scenes/world_2.tscn"),
+	"world3" : preload("res://scenes/world_3.tscn"),
 	"gameOver" : preload("res://scenes/game_over.tscn")
 }
 
