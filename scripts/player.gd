@@ -178,7 +178,7 @@ func animation_is_roll():
 func collect(item):
 	inv.insert(item);
 
-## Reduz uma quantidade de HP
+## Reduz uma quantidade de HPwww
 func takeDamage(amount):
 	print("[PLAYER] - Dano recebido: %s." % [amount])
 	health -= amount;
@@ -187,11 +187,19 @@ func takeDamage(amount):
 	dead = health <= 0;
 
 func _on_hurt_box_area_entered(area):
-	if area.name == "HitBox" or area.name == "HitBox2":
+	var enemy : Enemy
+	var _dmg 
+	if area.name == "HitBox":
 		print("Player encostou numa hitbox.")
 		# TODO: Obter valor de [damage] a partir do Node do Esqueleto.
 		# var _dmg = area.get_parent().damage;
-		var _dmg = 1;
+		enemy = area.get_parent().get_parent();
+		_dmg = enemy.damage;
+		takeDamage(_dmg)
+	elif area.name == "HitBox2":
+		print("Aiiiiiii")
+		enemy = area.get_parent()
+		_dmg = enemy.damage
 		takeDamage(_dmg)
 
 ## Função para atualizar a vida no HealthBar.
