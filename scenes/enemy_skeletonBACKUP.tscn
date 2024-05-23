@@ -293,7 +293,6 @@ rotation = -1.87946
 [node name="HitBox" type="Area2D" parent="SwordNode"]
 position = Vector2(39, -1)
 rotation = 1.85931
-scale = Vector2(1, 1)
 collision_layer = 48
 collision_mask = 48
 
@@ -324,7 +323,6 @@ modulate = Color(1, 1, 1, 0)
 z_index = 5
 z_as_relative = false
 position = Vector2(-8.68845, -11.5113)
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(-16.6162, -10.0449, -3.22534, -20.847, 9.75238, -21.6077, 19.9693, -18.1996, 25.3703, -11.5042, 25.8384, -3.51791, 22.723, 11.6904, 11.5698, -7.69016, -0.585128, -9.98286)
 vertex_colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
