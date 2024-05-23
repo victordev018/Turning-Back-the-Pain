@@ -10,7 +10,8 @@ var playerNode = null
 var fadeInScene = preload("res://scenes/fade_in.tscn")
 ## Posição definida do PLayer ao iniciar a cena
 var destinyPosition: Vector2 = Vector2.ZERO;
-
+var playerHealth : int = 6
+var playerMaxHealth : int = 6
 ## Dicionário das principais cenas do jogo
 var scenes : Dictionary = {
 	"title" : preload("res://scenes/title_screen.tscn"),

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b62g28661cvu4" path="res://scenes/health_bar.tscn" id="7_urtnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nesjv"]
-size = Vector2(20, 32)
+size = Vector2(16, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jejt"]
 size = Vector2(17, 5)
@@ -145,7 +145,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rg4ny"]
-size = Vector2(24, 35)
+size = Vector2(24, 35.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okcwb"]
 size = Vector2(49.6361, 36.3402)
@@ -257,7 +257,7 @@ collision_layer = 48
 collision_mask = 48
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox2"]
-position = Vector2(-2, 2)
+position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_nesjv")
 debug_color = Color(0, 0.984314, 0, 0.419608)
 
@@ -289,7 +289,7 @@ collision_layer = 48
 collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-2, 2)
+position = Vector2(-2, 1.75)
 shape = SubResource("RectangleShape2D_rg4ny")
 debug_color = Color(0.689567, 0.452056, 0.565898, 0.42)
 
