@@ -1,16 +1,26 @@
 extends CharacterBody2D
 @onready var player = null
-@export  var SPEED = 60.0;
-@onready var sprite_skeleton = $SpriteSkeleton
+
+
 @onready var healthbar = $HealthBar
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer;
-@export var health : int = 6;
-@export var damage: int = 1;
+
+@export var enemyResource: EnemyResource
+
+var SPEED: float;
+var health: int;
+var damage: int;
+@onready var enemy_sprite: AnimatedSprite2D = $Sprite
+@onready var enemy_hand: Sprite2D = $Sprite/Hand
 @onready var healthBar = get_node("HealthBar") as HealthBar
+
+
 var redAmount: float = 0.0;
 var dead = false
 
 func _ready():
+	assert(enemyResource != null, "ERRO: DEFINA O RESOURCE DO INIMIGO")
+	load_resource()
 	player = Global.playerNode
 	healthbar.init_health(health)
 
@@ -20,9 +30,9 @@ func _physics_process(delta):
 	
 func _process(delta):
 	if velocity.x > 0:
-		sprite_skeleton.flip_h = false
+		enemy_sprite.flip_h = false
 	elif velocity.x < 0:
-		sprite_skeleton.flip_h = true
+		enemy_sprite.flip_h = true
 	state_machine()
 	
 ## Atualiza a velocidade de acordo com a direção do player
@@ -50,7 +60,7 @@ func state_machine():
 	var state = "Idle";
 	if velocity.length() > 0:
 		state = "Run";
-	sprite_skeleton.play(state);
+	enemy_sprite.play(state);
 
 
 func takeDamage(amount):
@@ -73,4 +83,11 @@ func attack():
 
 func _on_attack_timer_timeout():
 	attack()
-	pass # Replace with function body.
+
+func load_resource():
+	SPEED = enemyResource.SPEED
+	enemy_sprite.sprite_frames = enemyResource.enemy_sprite_frames
+	health = enemyResource.health
+	damage = enemyResource.damage
+	
+	

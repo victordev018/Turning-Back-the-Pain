@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
 [ext_resource type="PackedScene" uid="uid://dc1v68l2iw0h" path="res://scenes/terrain.tscn" id="2_gfq0q"]
+[ext_resource type="PackedScene" uid="uid://d4kyy8i518nj0" path="res://scenes/skeleton.tscn" id="2_h4jl3"]
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 [ext_resource type="PackedScene" uid="uid://du13gw0obevb8" path="res://scenes/objects_terrain.tscn" id="4_l475j"]
-[ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy_skeletonBACKUP.tscn" id="6_vdype"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
 [ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="9_fh2g7"]
@@ -50,12 +50,11 @@ position = Vector2(55, 304)
 
 [node name="UI" parent="." instance=ExtResource("3_q4du6")]
 
-[node name="EnemySkeleton" parent="." instance=ExtResource("6_vdype")]
-position = Vector2(199, 388)
-collision_mask = 1
-
 [node name="FadeOut" parent="." instance=ExtResource("7_mfvhv")]
 visible = false
+
+[node name="Enemy" parent="." instance=ExtResource("2_h4jl3")]
+position = Vector2(936, 206)
 
 [node name="ItemsCollectibles" type="Node" parent="."]
 
