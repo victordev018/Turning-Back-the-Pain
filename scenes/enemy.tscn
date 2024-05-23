@@ -121,7 +121,7 @@ position = Vector2(-1.5, 15)
 shape = SubResource("RectangleShape2D_3jejt")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-animation = &"Idle"
+animation = &""
 autoplay = "Idle"
 
 [node name="Hand" type="Sprite2D" parent="Sprite"]

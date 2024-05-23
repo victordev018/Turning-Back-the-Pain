@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 @onready var player = null
 
 
@@ -13,6 +14,8 @@ var damage: int;
 @onready var enemy_sprite: AnimatedSprite2D = $Sprite
 @onready var enemy_hand: Sprite2D = $Sprite/Hand
 @onready var healthBar = get_node("HealthBar") as HealthBar
+
+var explosionScene: PackedScene = preload("res://scenes/explosion_particles.tscn")
 
 
 var redAmount: float = 0.0;
@@ -29,6 +32,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta):
+	if health <= 0:
+		dead = true
 	if velocity.x > 0:
 		enemy_sprite.flip_h = false
 	elif velocity.x < 0:
@@ -54,13 +59,34 @@ func follow_player(delta):
 	#_ang = rad_to_deg(_ang);
 	$SwordNode.rotation = _ang;
 	
+	$Sprite.modulate.g = 1.0 - redAmount;
+	$Sprite.modulate.b = 1.0 - redAmount;
+	redAmount = move_toward(redAmount, 0.0, 0.0250);
 	
-
+	if dead:
+		$SwordNode.visible = false;
+		velocity = Vector2.ZERO
+		var _col = get_node("HurtBox/CollisionShape2D") as CollisionShape2D
+		_col.disabled = true;
+		
+func createExplosionParticles():
+	var _explosion = explosionScene.instantiate()
+	_explosion.global_position = global_position;
+	Global.levelNode.add_child(_explosion);
+		
 func state_machine():
-	var state = "Idle";
-	if velocity.length() > 0:
-		state = "Run";
-	enemy_sprite.play(state);
+	if dead:
+		if enemy_sprite.animation != "Death":
+			enemy_sprite.play("Death")
+			await get_tree().create_timer(0.69).timeout
+			createExplosionParticles();
+			queue_free()
+			
+	else:
+		var state = "Idle";
+		if velocity.length() > 0:
+			state = "Run";
+		enemy_sprite.play(state);
 
 
 func takeDamage(amount):
