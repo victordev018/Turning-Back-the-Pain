@@ -16,6 +16,9 @@ var availableTimeVelocity : bool = false;
 ## Controlador de tempo de velocidade aplicada por porção velocity.
 var availableTimeForce : bool = false;
 
+## Refeência ao player:
+var player = Global.playerNode;
+
 ## Dicionario de ações para cada item coletado, por meio de chave (nome do item) e valor (função do item):
 var itemsActions: Dictionary = {
 	"potionCure": Callable(self, "usePotionCure"),
@@ -58,6 +61,15 @@ func usePotionForce() -> bool:
 	Global.playerNode.time_force_label.visible = true;
 	Global.playerNode.damageBuff = true;
 	return true;
+	
+## Funão para mudar a espada atual para a espada de diamante azul:
+func changeToSwordBlue() -> bool:
+	## muda a textura da espada pra a espada azul
+	Global.playerNode.spriteSword.texture = Global.playerNode.swordBlues.texture;
+	Global.playerNode.damageBuff = true;
+	return true;
+	
+	
 
 ## função acionada quando consome uma maçã.
 func useApple() -> bool:

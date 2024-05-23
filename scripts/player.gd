@@ -12,7 +12,7 @@ class_name Player
 ## Capacidade do player usar o rolamento
 var rolling : bool = false
 var canRoll = true
-const BASE_SPEED: float = 100;
+var BASE_SPEED: float = 100;
 var _move_speed: float = BASE_SPEED;
 var speedBuff: bool = false;
 var _friction : float = 0.8;
