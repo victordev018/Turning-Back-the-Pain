@@ -5,6 +5,9 @@ class_name Player
 @export_category("Player settings")
 @export var inv: Inventory;
 @onready var animation = $Animation
+## Referência aos labels de tempo de velocity e força:
+@onready var time_velocity = $Panels/TimeVelocity
+@onready var time_force = $Panels/TimeForce
 ## Movimentação do Player
 ## Capacidade do player usar o rolamento
 var rolling : bool = false
@@ -35,6 +38,9 @@ var dead = false;
 var redAmount: float = 0.0;
 
 func _ready():
+	## Desativando visibilidade dos labels de time veloicy e time force:
+	time_velocity.visible = false;
+	time_force.visible = false;
 	speedBuff = !ItemManage.timerVelocity.is_stopped();
 	Global.playerNode = self;
 	set_process(true);
@@ -101,6 +107,7 @@ func _process(delta):
 	mpos = get_global_mouse_position();
 	manageFacing()
 	manageSword()
+	updatLabelVelocity()
 	
 	# Regular tom vermelho
 	$Animation.modulate.g = 1.0 - redAmount;
@@ -174,7 +181,11 @@ func _on_hurt_box_area_entered(area):
 		# var _dmg = area.get_parent().damage;
 		var _dmg = 1;
 		takeDamage(_dmg)
-		
 
 func updateHealth() -> void:
 	healthBar.setHealth(health)
+	
+func updatLabelVelocity() -> void:
+	if ItemManage.availableTime:
+		time_velocity.text = "Time velocity: "+ str(int(ItemManage.timerVelocity.time_left));
+	

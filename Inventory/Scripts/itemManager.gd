@@ -38,13 +38,14 @@ func usePotionVelocity() -> bool:
 	if Global.playerNode.speedBuff:
 		return false;
 	timerVelocity.start();
+	availableTime = true;
+	Global.playerNode.time_velocity.visible = true;
 	Global.playerNode.speedBuff = true;
 	return true;
 
 ## Função para aumentar dano da espada:
 func usePotionForce() -> bool:
 	if Global.playerNode.damageBuff:
-		print("Spada já esta com força aumentada!")
 		return false;
 	Global.playerNode.damageBuff = true;
 	return true;
@@ -56,6 +57,7 @@ func useApple() -> bool:
 
 ## Acionada quando o tempo do efeito da porção de velocidade acaba.
 func _on_timer_timeout():
-	print("Cabou a droga e o dinheiro ._.")
+	availableTime = false;
+	Global.playerNode.time_velocity.visible = false;
 	Global.playerNode.speedBuff = false;
 

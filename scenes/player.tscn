@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cgqkpqbj3nt8d"]
+[gd_scene load_steps=38 format=3 uid="uid://cgqkpqbj3nt8d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dswwk"]
 [ext_resource type="Texture2D" uid="uid://cdr4ug0sjhnnl" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_ks538"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c5a7557p1obab" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="6_q1ahu"]
 [ext_resource type="PackedScene" uid="uid://bfs7slhpjyt6b" path="res://Inventory/Ui inventory/inv_ui.tscn" id="8_4wfa7"]
 [ext_resource type="PackedScene" uid="uid://b62g28661cvu4" path="res://scenes/health_bar.tscn" id="9_ka2bh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_opraq"]
+font_size = 11
+
+[sub_resource type="LabelSettings" id="LabelSettings_sd457"]
+font_size = 11
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofdwy"]
 size = Vector2(21, 4)
@@ -392,6 +398,31 @@ size = Vector2(24, 32)
 script = ExtResource("1_dswwk")
 inv = ExtResource("2_mwhd1")
 
+[node name="Panels" type="CanvasLayer" parent="."]
+
+[node name="TimeVelocity" type="Label" parent="Panels"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 170.0
+offset_top = 9.0
+offset_right = -77.0
+offset_bottom = 32.0
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "time velocity: "
+label_settings = SubResource("LabelSettings_opraq")
+
+[node name="TimeForce" type="Label" parent="Panels"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 270.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "time force:"
+label_settings = SubResource("LabelSettings_sd457")
+
 [node name="Colision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_ofdwy")
@@ -489,6 +520,8 @@ offset_top = -123.0
 offset_right = 12.0
 offset_bottom = -96.0
 scale = Vector2(0.472683, 0.362751)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="timeout" from="RollRecoveryTimer" to="." method="_on_roll_recovery_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
