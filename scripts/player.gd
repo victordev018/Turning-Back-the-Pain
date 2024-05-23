@@ -9,10 +9,12 @@ class_name Player
 ## Capacidade do player usar o rolamento
 var rolling : bool = false
 var canRoll = true
-var _move_speed: float = 100
-var _friction : float = 0.8
-var _acceleration: float = 0.4
-var _direction : Vector2 = Vector2()
+const BASE_SPEED: float = 100;
+var _move_speed: float = BASE_SPEED;
+var speedBuff: bool = false;
+var _friction : float = 0.8;
+var _acceleration: float = 0.4;
+var _direction : Vector2 = Vector2();
 ## Referência do nó da Espada
 @onready var mySword = get_node("SwordNode")
 ## Direção do Player
@@ -31,10 +33,11 @@ var dead = false;
 var redAmount: float = 0.0;
 
 func _ready():
-	Global.playerNode = self
-	set_process(true)
-	health = Global.playerHealth
-	healthBar.init_health(health)
+	speedBuff = !ItemManage.timerVelocity.is_stopped();
+	Global.playerNode = self;
+	set_process(true);
+	health = Global.playerHealth;
+	healthBar.init_health(health);
 
 ## Ajustar direção para onde o Player está olhando.
 func manageFacing():
@@ -87,6 +90,7 @@ func _move() -> void:
 	velocity += knockbackVector
 
 func _process(delta):
+	_move_speed = BASE_SPEED + 50 * int(speedBuff);
 	Global.playerHealth = health
 	state_machine()
 	mpos = get_global_mouse_position();
@@ -154,7 +158,7 @@ func collect(item):
 func takeDamage(amount):
 	print("[PLAYER] - Dano recebido: %s." % [amount])
 	health -= amount;
-	healthBar.setHealth(health)
+	updateHealth()
 	redAmount = 1.0;
 	dead = health <= 0;
 
@@ -164,3 +168,6 @@ func _on_hurt_box_area_entered(area):
 		var _dmg = area.get_parent().damage;
 		takeDamage(_dmg)
 		
+
+func updateHealth() -> void:
+	healthBar.setHealth(health)

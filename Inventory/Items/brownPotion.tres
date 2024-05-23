@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bmjnhx7s8q03d"]
+
+[ext_resource type="Script" path="res://Inventory/Scripts/item_inventory.gd" id="1_qwvg2"]
+[ext_resource type="Texture2D" uid="uid://cibmgywfh2wvm" path="res://Inventory/assets/potions/brownPotion.png" id="2_q36rf"]
+
+[resource]
+script = ExtResource("1_qwvg2")
+name = "potionForce"
+texture = ExtResource("2_q36rf")

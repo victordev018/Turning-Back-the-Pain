@@ -5,7 +5,7 @@ var levelNode = null
 ## Referência para o nó da interface do usuário
 var uiNode = null
 ## Referência para o nó do jogador
-var playerNode = null
+var playerNode: Player = null
 ## Carrega a cena de transição de fade-in para ser usada posteriormente
 var fadeInScene = preload("res://scenes/fade_in.tscn")
 ## Posição definida do PLayer ao iniciar a cena

@@ -1,23 +1,21 @@
 extends Control
 
 ## variável que controla a abertura e fechamento do inventário:
-var is_open = false;
+var is_open = false; 
 
-## variávris que controla a interface do inventário:
-@onready var inv: Inventory = preload("res://Inventory/inventorys/player_inventory.tres");
-# pega todos os slot's como um array
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children(); 
+#+ pega todos os slot's como um array
+@onready var slots: Array = $NinePatchRect/GridContainer.get_children();
 
 func _ready():
-	# conectando sianal de update com a função uppdat_alot
-	inv.update.connect(uppdadat_slots);
-	uppdadat_slots();
+	# conectando sinal de update com a função uppdat_alot
+	ItemManage.invPlay.update.connect(uppdat_slots);
+	uppdat_slots();
 	close();
 	
 ## função para atualizar cada slot:
-func uppdadat_slots():
-	for item in range(inv.slots.size()):
-		slots[item].uppdatIcon(inv.slots[item])
+func uppdat_slots():
+	for item in range(ItemManage.invPlay.slots.size()):
+		slots[item].uppdatIcon(ItemManage.invPlay.slots[item])
 		
 
 func _process(delta) -> void:
