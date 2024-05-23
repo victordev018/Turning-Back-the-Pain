@@ -32,9 +32,9 @@ func setHealth(newHealth):
 
 func init_health(_health):
 	health = _health
-	max_value = health
+	max_value = Global.playerMaxHealth
 	value = health
-	damageBar.max_value = health
+	damageBar.max_value = Global.playerMaxHealth
 	damageBar.value = health
 
 func _on_timer_timeout():

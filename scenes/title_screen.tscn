@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cr42jns1kpeo0"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_fe2f8"]
-[ext_resource type="Texture2D" uid="uid://cmbnnlwjatvtu" path="res://assets/_image.png" id="2_ut5od"]
+[ext_resource type="Texture2D" uid="uid://rfndslkmu0e7" path="res://assets/Default_This_is_a_cave_that_should_have_a_very_dark_entrance_a_2.jpg" id="2_lc6uj"]
 
 [sub_resource type="Gradient" id="Gradient_u5arq"]
 offsets = PackedFloat32Array(0.116564, 0.675325)
@@ -35,24 +35,24 @@ pivot_offset = Vector2(90, 0)
 
 [node name="NewGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "New Game+"
+text = "New Game"
 
 [node name="Image" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(180, 96)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ut5od")
+position = Vector2(175, 100)
+scale = Vector2(0.259681, 0.22314)
+texture = ExtResource("2_lc6uj")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(1, 0)
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(167, 182, 160, 155, 182, 132, 205, 154, 199, 182)
+position = Vector2(0, -1)
+color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+polygon = PackedVector2Array(158, 182, 154, 182, 152, 180, 148, 180, 147, 175, 144, 175, 144, 163, 144, 151, 146, 148, 148, 143, 148, 138, 151, 134, 152, 131, 156, 131, 156, 128, 160, 127, 161, 124, 164, 124, 164, 122, 169, 122, 170, 120, 180, 120, 189, 120, 191, 122, 199, 124, 204, 127, 204, 132, 209, 132, 209, 137, 212, 138, 212, 144, 214, 144, 216, 175, 213, 176, 212, 179, 209, 180, 209, 182)
 
 [node name="CaveLight" type="TextureRect" parent="."]
-offset_left = 105.0
-offset_top = 85.0
-offset_right = 262.0
-offset_bottom = 243.0
+offset_left = 101.0
+offset_top = 76.0
+offset_right = 258.0
+offset_bottom = 234.0
 texture = SubResource("GradientTexture2D_ybw87")
 
 [node name="Label" type="Label" parent="."]

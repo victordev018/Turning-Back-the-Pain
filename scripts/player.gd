@@ -33,6 +33,7 @@ var redAmount: float = 0.0;
 func _ready():
 	Global.playerNode = self
 	set_process(true)
+	health = Global.playerHealth
 	healthBar.init_health(health)
 
 ## Ajustar direção para onde o Player está olhando.
@@ -61,7 +62,7 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO;
 	if rolling:
-		velocity = _direction * _move_speed * 2
+		velocity = _direction * _move_speed * 4
 	# Desativar colisão ao rolar. TODO..alterar para hurt box! S2
 	var my_coll = get_node("HurtBox/Collision") as CollisionShape2D
 	my_coll.disabled = rolling
@@ -86,6 +87,7 @@ func _move() -> void:
 	velocity += knockbackVector
 
 func _process(delta):
+	Global.playerHealth = health
 	state_machine()
 	mpos = get_global_mouse_position();
 	manageFacing()
@@ -123,7 +125,7 @@ func state_machine():
 		animation.play("Death")
 		return
 	var state = "Idle"
-	if velocity.length() > 0:
+	if _direction != Vector2.ZERO:
 		state = "Run"
 	if animation.name != state:
 		animation.play(state)
