@@ -4,6 +4,8 @@ extends Node
 var levelNode = null
 ## Referência para o nó da interface do usuário
 var uiNode = null
+## Referência para o script de ui_inv:
+var uiInv = null;
 ## Referência para o nó do jogador
 var playerNode: Player = null
 ## Carrega a cena de transição de fade-in para ser usada posteriormente

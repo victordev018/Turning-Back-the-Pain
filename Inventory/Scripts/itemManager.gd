@@ -5,10 +5,16 @@ extends Node
 @onready var invPlay: Inventory = preload("res://Inventory/inventorys/player_inventory.tres");
 
 ## Referência ao tempo de efeito da porção de velocidade:
-@onready var timerVelocity :Timer = get_node("Timer");
+@onready var timerVelocity :Timer = get_node("TimerVelocity");
+
+## Referência ao tempo de efeito da porção de força:
+@onready var timerForce :Timer = get_node("TimerForce");
 
 ## Controlador de tempo de velocidade aplicada por porção velocity.
-var availableTime : bool = false;
+var availableTimeVelocity : bool = false;
+
+## Controlador de tempo de velocidade aplicada por porção velocity.
+var availableTimeForce : bool = false;
 
 ## Dicionario de ações para cada item coletado, por meio de chave (nome do item) e valor (função do item):
 var itemsActions: Dictionary = {
@@ -38,8 +44,8 @@ func usePotionVelocity() -> bool:
 	if Global.playerNode.speedBuff:
 		return false;
 	timerVelocity.start();
-	availableTime = true;
-	Global.playerNode.time_velocity.visible = true;
+	availableTimeVelocity = true;
+	Global.playerNode.time_velocity_label.visible = true;
 	Global.playerNode.speedBuff = true;
 	return true;
 
@@ -47,6 +53,9 @@ func usePotionVelocity() -> bool:
 func usePotionForce() -> bool:
 	if Global.playerNode.damageBuff:
 		return false;
+	timerForce.start();
+	availableTimeForce = true;
+	Global.playerNode.time_force_label.visible = true;
 	Global.playerNode.damageBuff = true;
 	return true;
 
@@ -57,7 +66,12 @@ func useApple() -> bool:
 
 ## Acionada quando o tempo do efeito da porção de velocidade acaba.
 func _on_timer_timeout():
-	availableTime = false;
-	Global.playerNode.time_velocity.visible = false;
+	availableTimeVelocity = false;
+	Global.playerNode.time_velocity_label.visible = false;
 	Global.playerNode.speedBuff = false;
 
+## Acionada quando o tempo do efeito de força na espada acaba.
+func _on_timer_force_timeout():
+	availableTimeForce = false;
+	Global.playerNode.time_force_label.visible = false;
+	Global.playerNode.damageBuff = false;

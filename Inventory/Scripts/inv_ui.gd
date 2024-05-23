@@ -7,6 +7,7 @@ var is_open = false;
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children();
 
 func _ready():
+	Global.uiInv = self;
 	# conectando sinal de update com a função uppdat_alot
 	ItemManage.invPlay.update.connect(uppdat_slots);
 	uppdat_slots();

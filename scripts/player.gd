@@ -6,8 +6,8 @@ class_name Player
 @export var inv: Inventory;
 @onready var animation = $Animation
 ## Referência aos labels de tempo de velocity e força:
-@onready var time_velocity = $Panels/TimeVelocity
-@onready var time_force = $Panels/TimeForce
+@onready var time_velocity_label = $Panels/TimeVelocity
+@onready var time_force_label = $Panels/TimeForce
 ## Movimentação do Player
 ## Capacidade do player usar o rolamento
 var rolling : bool = false
@@ -39,8 +39,8 @@ var redAmount: float = 0.0;
 
 func _ready():
 	## Desativando visibilidade dos labels de time veloicy e time force:
-	time_velocity.visible = false;
-	time_force.visible = false;
+	time_velocity_label.visible = false;
+	time_force_label.visible = false;
 	speedBuff = !ItemManage.timerVelocity.is_stopped();
 	Global.playerNode = self;
 	set_process(true);
@@ -107,15 +107,16 @@ func _process(delta):
 	mpos = get_global_mouse_position();
 	manageFacing()
 	manageSword()
-	updatLabelVelocity()
+	updatLabelVelocity();
+	updatLabelForce();
 	
 	# Regular tom vermelho
 	$Animation.modulate.g = 1.0 - redAmount;
 	$Animation.modulate.b = 1.0 - redAmount;
 	redAmount = move_toward(redAmount, 0.0, 0.0250);
 	
-	# Atacar
-	if Input.is_action_just_pressed("attack") and !rolling:
+	# Atacar se pressionar boyão direito do mouse, não estiver rolando e o inventário não estiver aberto.
+	if Input.is_action_just_pressed("attack") and !rolling and !Global.uiInv.is_open:
 		$AnimationPlayer.play("Attack")
 
 	# Rolar
@@ -182,10 +183,16 @@ func _on_hurt_box_area_entered(area):
 		var _dmg = 1;
 		takeDamage(_dmg)
 
+## Função para atualizar a vida no HealthBar.
 func updateHealth() -> void:
 	healthBar.setHealth(health)
-	
+
+## Função para atualizar o label do time velocity
 func updatLabelVelocity() -> void:
-	if ItemManage.availableTime:
-		time_velocity.text = "Time velocity: "+ str(int(ItemManage.timerVelocity.time_left));
+	if ItemManage.availableTimeVelocity:
+		time_velocity_label.text = "Timer velocity: "+ str(int(ItemManage.timerVelocity.time_left));
+	
+func updatLabelForce() -> void:
+	if ItemManage.availableTimeForce:
+		time_force_label.text = "Timer force: "+ str(int(ItemManage.timerForce.time_left));
 	

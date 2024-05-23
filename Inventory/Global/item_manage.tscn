@@ -5,8 +5,13 @@
 [node name="ItemManage" type="Node"]
 script = ExtResource("1_0wtl2")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerVelocity" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="TimerForce" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="TimerVelocity" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerForce" to="." method="_on_timer_force_timeout"]
