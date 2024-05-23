@@ -33,13 +33,14 @@ func follow_player(delta):
 	var _distance = global_position.distance_to(player.global_position);
 	var _vector = global_position.direction_to(player.global_position);
 	
-	if _distance >= 36:
+	velocity = Vector2.ZERO;
+	if _distance >= 36 and _distance < 240:
 		velocity = _vector * SPEED;
-	elif _distance >= 12:
+	
+	if _distance <= 60:
 		if $AttackTimer.is_stopped():
 			$AttackTimer.start()
-	else:
-		velocity = Vector2.ZERO;
+		
 	
 	var _ang = _vector.angle()
 	#_ang = rad_to_deg(_ang);

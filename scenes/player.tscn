@@ -423,6 +423,13 @@ grow_horizontal = 2
 text = "time force:"
 label_settings = SubResource("LabelSettings_sd457")
 
+[node name="HealthBar" parent="Panels" instance=ExtResource("9_ka2bh")]
+offset_left = 9.0
+offset_top = 14.0
+offset_right = 227.0
+offset_bottom = 33.0
+scale = Vector2(0.472683, 0.362751)
+
 [node name="Colision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_ofdwy")
@@ -513,13 +520,6 @@ offset_left = -37.0
 offset_top = 14.0
 offset_right = 3.0
 offset_bottom = 54.0
-
-[node name="HealthBar" parent="." instance=ExtResource("9_ka2bh")]
-offset_left = -228.0
-offset_top = -123.0
-offset_right = 12.0
-offset_bottom = -96.0
-scale = Vector2(0.472683, 0.362751)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
