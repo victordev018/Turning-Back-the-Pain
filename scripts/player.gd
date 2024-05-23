@@ -17,9 +17,11 @@ var _acceleration: float = 0.4;
 var _direction : Vector2 = Vector2();
 ## Referência do nó da Espada
 @onready var mySword = get_node("SwordNode")
-## Direção do Player
-var damage: int = 1;
-var facing : int = 1
+## Ddamage do player.
+const BASE_DEMAGE: int = 1;
+var damage: int = BASE_DEMAGE;
+var damageBuff: bool = false;
+var facing : int = 1;
 var mpos: Vector2 = Vector2.ZERO
 var health = 6
 var knockbackVector = Vector2.ZERO;
@@ -90,7 +92,10 @@ func _move() -> void:
 	velocity += knockbackVector
 
 func _process(delta):
+	## aumenta a velocidade de caso tenha usado a porção velocity
 	_move_speed = BASE_SPEED + 50 * int(speedBuff);
+	## altera a força do damage caso tenha usado a porção de força:
+	damage = BASE_DEMAGE + 1 * int(damageBuff);
 	Global.playerHealth = health
 	state_machine()
 	mpos = get_global_mouse_position();
