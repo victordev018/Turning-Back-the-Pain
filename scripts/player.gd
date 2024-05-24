@@ -159,6 +159,7 @@ func _process(delta):
 	if dead: otherHand.position.y = 12;
 
 	if dead:
+		ItemManage.invUiSlot.clearInventory();
 		$SwordNode.visible = false;
 		velocity = Vector2.ZERO
 		await  get_tree().create_timer(1).timeout

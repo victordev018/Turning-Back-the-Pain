@@ -12,6 +12,9 @@ var myName = "";
 ## Variaável que guarda a quantidade do item que foi selecionado:
 var myAmount;
 
+func _ready():
+	ItemManage.invUiSlot = self;
+
 func _process(delta):
 	pass
 
@@ -36,4 +39,9 @@ func uppdatIcon(slot: InvSlot) -> void:
 			amount_text.visible = true;
 		amount_text.text = str(slot.amount);
 			
-
+func clearInventory() -> void:
+	var slot = ItemManage.invPlay.slots;
+	$Button.disabled = true;
+	for i in range(slot.size()):
+		slot[i].amount = 0;
+		slot[i].item = null

@@ -16,6 +16,9 @@ var availableTimeVelocity : bool = false;
 ## Controlador de tempo de velocidade aplicada por porção velocity.
 var availableTimeForce : bool = false;
 
+## Referência ao nó de inv_ui_slot:
+var invUiSlot = null;
+
 ## Refeência ao player:
 var player = Global.playerNode;
 
