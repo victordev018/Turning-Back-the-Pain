@@ -20,7 +20,8 @@ var scenes : Dictionary = {
 	"world" : preload("res://scenes/world_1.tscn"),
 	"world2": preload("res://scenes/world_2.tscn"),
 	"world3" : preload("res://scenes/world_3.tscn"),
-	"gameOver" : preload("res://scenes/game_over.tscn")
+	"gameOver" : preload("res://scenes/game_over.tscn"),
+	"cutscene": preload("res://scenes/cutsceneTrue.tscn")
 }
 
 ## Transiciona para a cena desejada.

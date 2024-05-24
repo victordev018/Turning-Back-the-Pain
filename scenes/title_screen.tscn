@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr42jns1kpeo0"]
+[gd_scene load_steps=6 format=3 uid="uid://cr42jns1kpeo0"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_fe2f8"]
 [ext_resource type="Texture2D" uid="uid://rfndslkmu0e7" path="res://assets/Default_This_is_a_cave_that_should_have_a_very_dark_entrance_a_2.jpg" id="2_rc42c"]
+[ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="3_5lyoq"]
 
 [sub_resource type="Gradient" id="Gradient_u5arq"]
 offsets = PackedFloat32Array(0.116564, 0.675325)
@@ -61,5 +62,8 @@ offset_top = 23.0
 offset_right = 270.0
 offset_bottom = 46.0
 text = "Turning Back The Pain"
+
+[node name="FadeOut" parent="." instance=ExtResource("3_5lyoq")]
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
