@@ -661,7 +661,7 @@ animations = [{
 script = ExtResource("9_i5awu")
 SPEED = 60.0
 enemy_sprite_frames = SubResource("SpriteFrames_hdxbs")
-health = 2
+health = 30
 damage = 2
 
 [node name="World-4" type="Node2D"]

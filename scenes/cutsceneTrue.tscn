@@ -553,8 +553,10 @@ color = Color(1, 1, 0.956863, 1)
 color_ramp = SubResource("Gradient_6bm8b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-6, 3)
+position = Vector2(0, 8)
+scale = Vector2(1.07286, -2.22571)
 anchor_mode = 0
+zoom = Vector2(1, 1.1)
 
 [node name="FadeOut" parent="." instance=ExtResource("3_w2rfi")]
 visible = false
