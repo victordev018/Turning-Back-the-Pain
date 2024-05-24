@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://c7nhd63gwrb0o"]
 
-[ext_resource type="SpriteFrames" uid="uid://dud3jn6nqpir4" path="res://resources/enemy/skeleton/skeleton_sprite_frames.tres" id="1_1q2wu"]
+[ext_resource type="SpriteFrames" uid="uid://db502fvp85dn8" path="res://resources/enemy/skeleton/skeleton_sprite_rogue_frames.tres" id="1_i4r4p"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="1_u3r31"]
 
 [resource]
 script = ExtResource("1_u3r31")
 SPEED = 60.0
-enemy_sprite_frames = ExtResource("1_1q2wu")
+enemy_sprite_frames = ExtResource("1_i4r4p")
 health = 6
 damage = 1
