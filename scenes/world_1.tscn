@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=19 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
 [ext_resource type="PackedScene" uid="uid://dc1v68l2iw0h" path="res://scenes/terrain.tscn" id="2_gfq0q"]
-[ext_resource type="PackedScene" uid="uid://d4kyy8i518nj0" path="res://scenes/skeleton.tscn" id="2_h4jl3"]
+[ext_resource type="PackedScene" path="res://scenes/skeleton.tscn" id="2_h4jl3"]
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://bvhvxnpowlfjg" path="res://scenes/card.tscn" id="4_3dfb4"]
 [ext_resource type="PackedScene" uid="uid://du13gw0obevb8" path="res://scenes/objects_terrain.tscn" id="4_l475j"]
@@ -14,6 +14,8 @@
 [ext_resource type="Resource" uid="uid://cwqaa0csygn31" path="res://Inventory/Items/bluePotion.tres" id="11_61b05"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_ongtp"]
 [ext_resource type="Resource" uid="uid://bmjnhx7s8q03d" path="res://Inventory/Items/brownPotion.tres" id="12_us1im"]
+[ext_resource type="PackedScene" uid="uid://bum0p3wap42es" path="res://Items/sword_blue.tscn" id="15_m5hfc"]
+[ext_resource type="PackedScene" uid="uid://eu6wvqil42lc" path="res://Items/sword_red.tscn" id="16_0n1ia"]
 
 [sub_resource type="Gradient" id="Gradient_3vexf"]
 offsets = PackedFloat32Array(0, 0.506667, 1)
@@ -117,3 +119,9 @@ color_ramp = SubResource("Gradient_qt2dw")
 position = Vector2(1134, 306)
 destinyScene = "world2"
 destinyPosition = Vector2(890, 370)
+
+[node name="SwordBlue" parent="." instance=ExtResource("15_m5hfc")]
+position = Vector2(930, 346)
+
+[node name="SwordRed" parent="." instance=ExtResource("16_0n1ia")]
+position = Vector2(754, 356)

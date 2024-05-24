@@ -21,7 +21,7 @@ var _direction : Vector2 = Vector2();
 ## Referência do nó da Espada
 @onready var mySword = get_node("SwordNode")
 ## Ddamage do player.
-const BASE_DEMAGE: int = 1;
+var BASE_DEMAGE: int = 1;
 var damage: int = BASE_DEMAGE;
 var damageBuff: bool = false;
 var facing : int = 1;
@@ -37,7 +37,8 @@ var dead = false;
 @export var camera_limit := Vector2(1000, 1000);
 @onready var camera: Camera2D = get_node("Camera")
 
-
+## Guarda a referência do sprit da espada:
+@onready var spriteSword: Sprite2D = get_node("SwordNode/HitBoxPlayer/SwordSprite");
 
 ## Valor da intensidade do tom vermelho do Player, aumentado ao levar dano.
 var redAmount: float = 0.0;
