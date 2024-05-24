@@ -516,5 +516,10 @@ offset_bottom = 54.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="SpawningTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="timeout" from="RollRecoveryTimer" to="." method="_on_roll_recovery_timer_timeout"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="SpawningTimer" to="." method="_on_spawning_timer_timeout"]

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+## Variável que controla se o jogador irá surgir caminhando para a direita.
+@export var spawning: bool = false;
+
 ## inventário do player:
 @export_category("Player settings")
 @export var inv: Inventory;
@@ -57,6 +60,11 @@ func _ready():
 	camera.limit_right = camera_limit.x;
 	camera.limit_bottom = camera_limit.y;
 	
+	# Efeito surgindo
+	if spawning:
+		await get_tree().create_timer(1).timeout
+		spawning = false;
+	
 
 ## Ajustar direção para onde o Player está olhando.
 func manageFacing():
@@ -76,8 +84,13 @@ func manageSword():
 	$RollSprite.scale.x = facing;
 
 func _physics_process(delta):
-	var _canMove: bool = !Global.uiNode.visible && !dead;
+	var _canMove: bool = !Global.uiNode.visible && !dead && !spawning;
 	rolling = $AnimationPlayer.current_animation in ["RollRight", "RollLeft"]
+	
+	if spawning:
+		velocity.x = _move_speed;
+		move_and_slide()
+	
 	if _canMove:
 		_move()
 		move_and_slide()
@@ -88,6 +101,8 @@ func _physics_process(delta):
 	# Desativar colisão ao rolar. TODO..alterar para hurt box! S2
 	var my_coll = get_node("HurtBox/Collision") as CollisionShape2D
 	my_coll.disabled = rolling
+	
+	
 
 func _move() -> void:
 	var _sp = knockbackVector.length() * 0.80;
@@ -215,3 +230,8 @@ func updatLabelForce() -> void:
 	if ItemManage.availableTimeForce:
 		time_force_label.text = "Timer force: "+ str(int(ItemManage.timerForce.time_left));
 	
+
+
+func _on_spawning_timer_timeout():
+	pass
+	#spawning = false;
