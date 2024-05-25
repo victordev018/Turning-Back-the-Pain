@@ -159,6 +159,8 @@ func _process(delta):
 	if dead: otherHand.position.y = 12;
 
 	if dead:
+		ItemManage.timerForce.stop();
+		ItemManage.timerVelocity.stop();
 		ItemManage.invUiSlot.clearInventory();
 		$SwordNode.visible = false;
 		velocity = Vector2.ZERO
