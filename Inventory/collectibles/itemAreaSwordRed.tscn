@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://du1g6jjnp6lh6"]
+
+[ext_resource type="Script" path="res://Inventory/collectibles/itemBehaviour.gd" id="1_0ccib"]
+[ext_resource type="Script" path="res://Inventory/Scripts/item_inventory.gd" id="2_glwb2"]
+[ext_resource type="Texture2D" uid="uid://ciuf5rxmg6j3u" path="res://Inventory/assets/swordRedresource.png" id="3_1wae5"]
+
+[sub_resource type="Resource" id="Resource_lbrub"]
+script = ExtResource("2_glwb2")
+name = "swordRed"
+texture = ExtResource("3_1wae5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbbnm"]
+size = Vector2(12, 29)
+
+[node name="ItemArea" type="Area2D"]
+z_index = 4
+script = ExtResource("1_0ccib")
+item = SubResource("Resource_lbrub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -6)
+scale = Vector2(1.11068, 2.21471)
+texture = ExtResource("3_1wae5")
+region_enabled = true
+region_rect = Rect2(0.167107, -1.13789, 12.6225, 19.5866)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_dbbnm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
