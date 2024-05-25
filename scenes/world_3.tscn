@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgh37nc21pner"]
+[gd_scene load_steps=35 format=3 uid="uid://bgh37nc21pner"]
 
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_b60eb"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_cajc4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://eu6wvqil42lc" path="res://Items/sword_red.tscn" id="10_bb7qx"]
 [ext_resource type="SpriteFrames" uid="uid://dnnoqfhmejof8" path="res://resources/enemy/skeleton/orc_sprite_enemy.tres" id="10_lldb1"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="11_277ds"]
+[ext_resource type="Script" path="res://resources/Identity/enemyIdentity.gd" id="12_gf6h0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ff1rv"]
 texture = ExtResource("1_b60eb")
@@ -2603,6 +2604,70 @@ enemy_sprite_frames = ExtResource("10_lldb1")
 health = 12
 damage = 1
 
+[sub_resource type="Resource" id="Resource_0amvr"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_65jrt"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy3"
+
+[sub_resource type="Resource" id="Resource_ldwvx"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy3"
+
+[sub_resource type="Resource" id="Resource_j0vsp"]
+script = ExtResource("12_gf6h0")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_jtejy"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_v54jp"]
+script = ExtResource("12_gf6h0")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_lwwx7"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy2"
+
+[sub_resource type="Resource" id="Resource_wwoxd"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_birxl"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy2"
+
+[sub_resource type="Resource" id="Resource_i68vd"]
+script = ExtResource("12_gf6h0")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_fq8vt"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_jkbem"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy3"
+
+[sub_resource type="Resource" id="Resource_fr58e"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_8lg55"]
+script = ExtResource("12_gf6h0")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_clx45"]
+script = ExtResource("12_gf6h0")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_04m4n"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy2"
+
 [node name="World-3" type="Node2D"]
 script = ExtResource("1_cajc4")
 
@@ -2643,80 +2708,96 @@ destinyPosition = Vector2(110, 740)
 position = Vector2(1685, 456)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_0amvr")
 
 [node name="Enemy10" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1700, 597)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_65jrt")
 
 [node name="Enemy11" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1810, 727)
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_ldwvx")
 
 [node name="Enemy12" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1634, 928)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_j0vsp")
 
 [node name="Enemy13" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1329, 1004)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_jtejy")
 
 [node name="Enemy14" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1395, 1140)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_v54jp")
 
 [node name="Enemy15" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1153, 1178)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_lwwx7")
 
 [node name="Enemy16" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(649, 875)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_wwoxd")
 
 [node name="Enemy17" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(456, 979)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_birxl")
 
 [node name="Enemy18" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(931, 606)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_i68vd")
 
 [node name="Enemy19" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1212, 612)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_fq8vt")
 
 [node name="Enemy20" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(899, 812)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_jkbem")
 
 [node name="Enemy24" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1017, 229)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_fr58e")
 
 [node name="Enemy21" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(901, 299)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_8lg55")
 
 [node name="Enemy22" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1104, 329)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_clx45")
 
 [node name="Enemy23" parent="Enemy" instance=ExtResource("9_l7qf4")]
 position = Vector2(1195, 827)
 collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_04m4n")
 
 [node name="TransporterArea2" parent="." instance=ExtResource("8_7vxqk")]
 position = Vector2(1363, 34)
