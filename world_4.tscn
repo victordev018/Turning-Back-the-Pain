@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cqy0geqja060m"]
+[gd_scene load_steps=34 format=3 uid="uid://cqy0geqja060m"]
 
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_jnnc2"]
 [ext_resource type="Script" path="res://world_4.gd" id="1_u3fpn"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bkwdgrwovtmtq" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc - Shaman/Idle/Idle-Sheet.png" id="7_kdbty"]
 [ext_resource type="Texture2D" uid="uid://b7rn1bdhh20w7" path="res://assets/Pixel Crawler - FREE - 1.8/Enemy/Orc Crew/Orc - Shaman/Run/Run-Sheet.png" id="8_e33ka"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="9_i5awu"]
-[ext_resource type="PackedScene" uid="uid://eu6wvqil42lc" path="res://Items/sword_red.tscn" id="12_v7xjv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5og52"]
 texture = ExtResource("1_jnnc2")
@@ -689,9 +688,6 @@ enemyResource = SubResource("Resource_wgjj0")
 
 [node name="FadeOut" parent="." instance=ExtResource("7_ibtyj")]
 visible = false
-
-[node name="SwordRed" parent="." instance=ExtResource("12_v7xjv")]
-position = Vector2(651, 507)
 
 [node name="EndLevelTimer" type="Timer" parent="."]
 

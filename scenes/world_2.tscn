@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://s5xj1sb70ook"]
+[gd_scene load_steps=30 format=3 uid="uid://s5xj1sb70ook"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_rclyr"]
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="2_r64ua"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_yd3vn"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy.tscn" id="10_jnpr1"]
 [ext_resource type="SpriteFrames" uid="uid://dud3jn6nqpir4" path="res://resources/enemy/skeleton/skeleton_sprite_frames.tres" id="11_plw4g"]
-[ext_resource type="PackedScene" uid="uid://bum0p3wap42es" path="res://Items/sword_blue.tscn" id="11_sje47"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_xbseu"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="12_4uirr"]
 [ext_resource type="Script" path="res://resources/Identity/enemyIdentity.gd" id="13_4fw6j"]
@@ -2712,6 +2711,3 @@ position = Vector2(81, 747)
 scale = Vector2(0.96992, 0.721466)
 destinyScene = "world3"
 destinyPosition = Vector2(480, 360)
-
-[node name="SwordBlue" parent="." instance=ExtResource("11_sje47")]
-position = Vector2(892, 893)
