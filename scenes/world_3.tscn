@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_iupa0"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="8_7vxqk"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy.tscn" id="9_l7qf4"]
-[ext_resource type="PackedScene" uid="uid://eu6wvqil42lc" path="res://Items/sword_red.tscn" id="10_bb7qx"]
 [ext_resource type="SpriteFrames" uid="uid://dnnoqfhmejof8" path="res://resources/enemy/skeleton/orc_sprite_enemy.tres" id="10_lldb1"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="11_277ds"]
 [ext_resource type="Script" path="res://resources/Identity/enemyIdentity.gd" id="12_gf6h0"]
@@ -2668,6 +2667,10 @@ nameEnemy = ""
 script = ExtResource("12_gf6h0")
 nameEnemy = "enemy2"
 
+[sub_resource type="Resource" id="Resource_0wuds"]
+script = ExtResource("12_gf6h0")
+nameEnemy = "enemy5"
+
 [node name="World-3" type="Node2D"]
 script = ExtResource("1_cajc4")
 
@@ -2799,11 +2802,14 @@ collision_mask = 2
 enemyResource = SubResource("Resource_8gwn0")
 enemyIdentity = SubResource("Resource_04m4n")
 
+[node name="Enemy25" parent="Enemy" instance=ExtResource("9_l7qf4")]
+position = Vector2(1211, 481)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_0wuds")
+
 [node name="TransporterArea2" parent="." instance=ExtResource("8_7vxqk")]
 position = Vector2(1363, 34)
 scale = Vector2(0.917457, 0.781091)
 destinyScene = "world4"
 destinyPosition = Vector2(340, 40)
-
-[node name="SwordRed" parent="." instance=ExtResource("10_bb7qx")]
-position = Vector2(1254, 1114)

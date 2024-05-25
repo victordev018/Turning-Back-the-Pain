@@ -31,14 +31,18 @@ var itemsActions: Dictionary = {
 	"potionCure": Callable(self, "usePotionCure"),
 	"apple": Callable(self, "useApple"),
 	"potionVelocity": Callable(self, "usePotionVelocity"),
-	"potionForce": Callable(self, "usePotionForce")
+	"potionForce": Callable(self, "usePotionForce"),
+	"swordBlue": Callable(self, "useSwordBlue"),
+	"swordRed": Callable(self, "useSwordRed")
 }
 
 ## Dicionário de itemns dropáveis para cada inimigo.
 var dropItemEnemy: Dictionary = {
 	"enemy1" : Callable(self, "dropPotionCure"),
 	"enemy2" : Callable(self, "dropPotionVelocity"),
-	"enemy3" : Callable(self, "dropPotionForce")
+	"enemy3" : Callable(self, "dropPotionForce"),
+	"enemy4" : Callable(self, "dropSwordBlue"),
+	"enemy5" : Callable(self, "dropSwordRed"),
 }
 
 
@@ -46,6 +50,20 @@ var dropItemEnemy: Dictionary = {
 func dropItem() -> void:
 	var function: Callable = dropItemEnemy.get(nameEnemy);
 	function.call();
+
+## Função para dropar a espada vermelha:
+func dropSwordRed() -> void:
+	var swordRed = preload("res://Inventory/collectibles/itemAreaSwordRed.tscn");
+	var swordInstance = swordRed.instantiate();
+	swordInstance.position = positionDeath;
+	add_child(swordInstance);
+
+## Função para dropar a espada azul:
+func dropSwordBlue() -> void:
+	var swordBlue = preload("res://Inventory/collectibles/itemAreaSwordBlue.tscn");
+	var swordInstance = swordBlue.instantiate();
+	swordInstance.position = positionDeath;
+	add_child(swordInstance);
 
 ## função para dropar porção de cura:
 func dropPotionCure() -> void:
@@ -74,6 +92,24 @@ func useItem(itemKey: String) -> bool:
 	var action: Callable = itemsActions.get(itemKey);
 	## Verifica se a ação existe e chama a função
 	return action.call();
+
+## Função para mudar a espada atual para a blue e aplicar suas propriedades
+func useSwordBlue() -> bool:
+	## Refência ao sprite da espada azul:
+	var swordBlue = preload("res://assets/blue wooden sword.png")
+	Global.playerNode.spriteSword.texture = swordBlue;
+	Global.playerNode.BASE_DEMAGE = 1;
+	Global.playerNode.damageBuff = true;
+	return false;
+
+## Função para mudar a espada atual para a red e aplicar suas propriedades
+func useSwordRed() -> bool:
+	## referência ao sprite da espada flamejante(vermelha)
+	var swordRed = preload("res://assets/red wooden sword.png");
+	Global.playerNode.spriteSword.texture = swordRed;
+	Global.playerNode.BASE_DEMAGE = 2;
+	Global.playerNode.damageBuff = true;
+	return false;
 
 ## função acionada quando consome uma porção de cura.
 func usePotionCure() -> bool:

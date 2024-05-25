@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_yd3vn"]
 [ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy.tscn" id="10_jnpr1"]
 [ext_resource type="SpriteFrames" uid="uid://dud3jn6nqpir4" path="res://resources/enemy/skeleton/skeleton_sprite_frames.tres" id="11_plw4g"]
-[ext_resource type="PackedScene" uid="uid://bum0p3wap42es" path="res://Items/sword_blue.tscn" id="11_sje47"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_xbseu"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="12_4uirr"]
 [ext_resource type="Script" path="res://resources/Identity/enemyIdentity.gd" id="13_4fw6j"]
@@ -2559,6 +2558,10 @@ nameEnemy = "enemy3"
 script = ExtResource("13_4fw6j")
 nameEnemy = "enemy2"
 
+[sub_resource type="Resource" id="Resource_hmhu4"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy4"
+
 [node name="World-2" type="Node2D"]
 script = ExtResource("1_rclyr")
 metadata/_edit_vertical_guides_ = [69.0]
@@ -2707,11 +2710,14 @@ collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_lxm7n")
 
+[node name="Enemy9" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+position = Vector2(776, 431)
+collision_mask = 2
+enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_hmhu4")
+
 [node name="TransporterArea2" parent="." instance=ExtResource("11_xbseu")]
 position = Vector2(81, 747)
 scale = Vector2(0.96992, 0.721466)
 destinyScene = "world3"
 destinyPosition = Vector2(480, 360)
-
-[node name="SwordBlue" parent="." instance=ExtResource("11_sje47")]
-position = Vector2(892, 893)
