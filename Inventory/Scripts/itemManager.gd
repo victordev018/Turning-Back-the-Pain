@@ -42,7 +42,7 @@ var dropItemEnemy: Dictionary = {
 	"enemy2" : Callable(self, "dropPotionVelocity"),
 	"enemy3" : Callable(self, "dropPotionForce"),
 	"enemy4" : Callable(self, "dropSwordBlue"),
-	"enemy5" : Callable(self, "dropSwordRed")
+	"enemy5" : Callable(self, "dropSwordRed"),
 }
 
 
@@ -51,7 +51,14 @@ func dropItem() -> void:
 	var function: Callable = dropItemEnemy.get(nameEnemy);
 	function.call();
 
-## Função para dropar a espada blue:
+## Função para dropar a espada vermelha:
+func dropSwordRed() -> void:
+	var swordRed = preload("res://Inventory/collectibles/itemAreaSwordRed.tscn");
+	var swordInstance = swordRed.instantiate();
+	swordInstance.position = positionDeath;
+	add_child(swordInstance);
+
+## Função para dropar a espada azul:
 func dropSwordBlue() -> void:
 	var swordBlue = preload("res://Inventory/collectibles/itemAreaSwordBlue.tscn");
 	var swordInstance = swordBlue.instantiate();
