@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://s5xj1sb70ook"]
+[gd_scene load_steps=31 format=3 uid="uid://s5xj1sb70ook"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_rclyr"]
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="2_r64ua"]
@@ -2558,6 +2558,10 @@ nameEnemy = "enemy3"
 script = ExtResource("13_4fw6j")
 nameEnemy = "enemy2"
 
+[sub_resource type="Resource" id="Resource_hmhu4"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy4"
+
 [node name="World-2" type="Node2D"]
 script = ExtResource("1_rclyr")
 metadata/_edit_vertical_guides_ = [69.0]
@@ -2705,6 +2709,12 @@ position = Vector2(571, 548)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_lxm7n")
+
+[node name="Enemy9" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+position = Vector2(776, 431)
+collision_mask = 2
+enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_hmhu4")
 
 [node name="TransporterArea2" parent="." instance=ExtResource("11_xbseu")]
 position = Vector2(81, 747)
