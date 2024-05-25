@@ -6,6 +6,8 @@ extends Area2D
 @export var item: InvItem;
 
 func _process(delta):
+	if Global.playerNode.dead:
+		queue_free();
 	get_node("Sprite2D").texture = item.texture;
 
 ## quando o player colidir com a maçã:
