@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=18 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
 [ext_resource type="PackedScene" uid="uid://bpmt4e73313w0" path="res://Inventory/collectibles/itemAreaSwordBlue.tscn" id="11_c68tf"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_ongtp"]
+[ext_resource type="PackedScene" uid="uid://du1g6jjnp6lh6" path="res://Inventory/collectibles/itemAreaSwordRed.tscn" id="12_ocrqy"]
 
 [sub_resource type="Resource" id="Resource_u670w"]
 script = ExtResource("6_mp1ig")
@@ -114,3 +115,6 @@ destinyPosition = Vector2(890, 370)
 
 [node name="ItemArea" parent="." instance=ExtResource("11_c68tf")]
 position = Vector2(92, 411)
+
+[node name="ItemArea2" parent="." instance=ExtResource("12_ocrqy")]
+position = Vector2(197, 406)
