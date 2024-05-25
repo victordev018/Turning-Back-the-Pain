@@ -31,7 +31,8 @@ var itemsActions: Dictionary = {
 	"potionCure": Callable(self, "usePotionCure"),
 	"apple": Callable(self, "useApple"),
 	"potionVelocity": Callable(self, "usePotionVelocity"),
-	"potionForce": Callable(self, "usePotionForce")
+	"potionForce": Callable(self, "usePotionForce"),
+	"swordBlue": Callable(self, "useSwordBlue")
 }
 
 ## Dicionário de itemns dropáveis para cada inimigo.
@@ -74,6 +75,15 @@ func useItem(itemKey: String) -> bool:
 	var action: Callable = itemsActions.get(itemKey);
 	## Verifica se a ação existe e chama a função
 	return action.call();
+
+## Função para mudar a espada e aplicar as novas propiedades dela.
+func useSwordBlue() -> bool:
+	## Refência ao sprite da espada azul:
+	var swordBlue = preload("res://assets/blue wooden sword.png")
+	Global.playerNode.spriteSword.texture = swordBlue;
+	Global.playerNode.BASE_DEMAGE = 1;
+	Global.playerNode.damageBuff = true;
+	return false;
 
 ## função acionada quando consome uma porção de cura.
 func usePotionCure() -> bool:
