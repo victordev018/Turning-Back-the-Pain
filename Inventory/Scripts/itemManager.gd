@@ -1,6 +1,10 @@
 extends Node
 ## classe responsável por gerenciar os itens e suas utilidades.
 
+## informações do inimigo que acabou de morrer:
+var nameEnemy: String
+var positionDeath: Vector2
+
 ## variávris que controla a interface do inventário:
 @onready var invPlay: Inventory = preload("res://Inventory/inventorys/player_inventory.tres");
 
@@ -30,6 +34,40 @@ var itemsActions: Dictionary = {
 	"potionForce": Callable(self, "usePotionForce")
 }
 
+## Dicionário de itemns dropáveis para cada inimigo.
+var dropItemEnemy: Dictionary = {
+	"enemy1" : Callable(self, "dropPotionCure"),
+	"enemy2" : Callable(self, "dropPotionVelocity"),
+	"enemy3" : Callable(self, "dropPotionForce")
+}
+
+
+## Função para instanciar um novo tem na cena.
+func dropItem() -> void:
+	var function: Callable = dropItemEnemy.get(nameEnemy);
+	function.call();
+
+## função para dropar porção de cura:
+func dropPotionCure() -> void:
+	var potionCure = preload("res://Inventory/collectibles/ItemAreaPotionCure.tscn");
+	var potionInstance = potionCure.instantiate()
+	potionInstance.position = positionDeath;
+	add_child(potionInstance);
+	
+## função para dropar porção de Velocity:
+func dropPotionVelocity() -> void:
+	var potionVelocity = preload("res://Inventory/collectibles/ItemAreaPotionVelocity.tscn");
+	var potionInstance = potionVelocity.instantiate()
+	potionInstance.position = positionDeath;
+	add_child(potionInstance);
+	
+## função para dropar porção de Força:
+func dropPotionForce() -> void:
+	var potionForce = preload("res://Inventory/collectibles/ItemAreaPotionForce.tscn");
+	var potionInstance = potionForce.instantiate()
+	potionInstance.position = positionDeath;
+	add_child(potionInstance);
+	
 ## função para consumir item.
 func useItem(itemKey: String) -> bool:
 	## O tipo Callable guarda uma função que pode ser acessada pelo método call().

@@ -8,7 +8,7 @@ func _ready():
 		if pl != null:
 			pl.global_position = Global.destinyPosition;
 			Global.destinyPosition = Vector2.ZERO;
-	
+	 
 func _process(delta):
 	#Se existir um player, posicionar as particles nele
 	if find_child("RainParticles") != null:

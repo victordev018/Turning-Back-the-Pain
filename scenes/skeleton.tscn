@@ -5,6 +5,3 @@
 
 [node name="Enemy" instance=ExtResource("1_fvrd2")]
 enemyResource = ExtResource("2_aoplm")
-
-[node name="Sprite" parent="." index="2"]
-animation = &""

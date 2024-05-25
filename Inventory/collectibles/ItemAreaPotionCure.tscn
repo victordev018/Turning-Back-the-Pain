@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu08eq4j2f0vu"]
+
+[ext_resource type="Script" path="res://Inventory/collectibles/itemBehaviour.gd" id="1_iljut"]
+[ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="2_hxipv"]
+[ext_resource type="Texture2D" uid="uid://bs3tde8tlugxa" path="res://Inventory/assets/potions/redPotion.png" id="3_u21oj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uhr4"]
+radius = 3.0
+
+[node name="ItemArea" type="Area2D"]
+z_index = 4
+script = ExtResource("1_iljut")
+item = ExtResource("2_hxipv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_1uhr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_u21oj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

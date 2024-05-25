@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://s5xj1sb70ook"]
+[gd_scene load_steps=31 format=3 uid="uid://s5xj1sb70ook"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_rclyr"]
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="2_r64ua"]
@@ -13,9 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bum0p3wap42es" path="res://Items/sword_blue.tscn" id="11_sje47"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_xbseu"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="12_4uirr"]
-[ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="14_exaed"]
-[ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="15_c5ge0"]
-[ext_resource type="Resource" uid="uid://cwqaa0csygn31" path="res://Inventory/Items/bluePotion.tres" id="16_eailo"]
+[ext_resource type="Script" path="res://resources/Identity/enemyIdentity.gd" id="13_4fw6j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0tq8"]
 texture = ExtResource("2_r64ua")
@@ -2522,12 +2520,44 @@ enemy_sprite_frames = ExtResource("11_plw4g")
 health = 8
 damage = 1
 
+[sub_resource type="Resource" id="Resource_sdvkw"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy2"
+
 [sub_resource type="Resource" id="Resource_blemw"]
 script = ExtResource("12_4uirr")
 SPEED = 60.0
 enemy_sprite_frames = ExtResource("11_plw4g")
 health = 6
 damage = 1
+
+[sub_resource type="Resource" id="Resource_bw362"]
+script = ExtResource("13_4fw6j")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_aim2f"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy3"
+
+[sub_resource type="Resource" id="Resource_h6upv"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_pmqew"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy3"
+
+[sub_resource type="Resource" id="Resource_wpiat"]
+script = ExtResource("13_4fw6j")
+nameEnemy = ""
+
+[sub_resource type="Resource" id="Resource_xw7fx"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy3"
+
+[sub_resource type="Resource" id="Resource_lxm7n"]
+script = ExtResource("13_4fw6j")
+nameEnemy = "enemy2"
 
 [node name="World-2" type="Node2D"]
 script = ExtResource("1_rclyr")
@@ -2633,41 +2663,49 @@ color_ramp = SubResource("Gradient_35wcp")
 position = Vector2(835, 888)
 collision_mask = 2
 enemyResource = SubResource("Resource_olnm3")
+enemyIdentity = SubResource("Resource_sdvkw")
 
 [node name="Enemy2" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(931, 816)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_bw362")
 
 [node name="Enemy3" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(225, 471)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_aim2f")
 
 [node name="Enemy4" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(252, 767)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_h6upv")
 
 [node name="Enemy5" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(431, 886)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_pmqew")
 
 [node name="Enemy6" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(771, 537)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_wpiat")
 
 [node name="Enemy7" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(531, 393)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_xw7fx")
 
 [node name="Enemy8" parent="Enemy8" instance=ExtResource("10_jnpr1")]
 position = Vector2(571, 548)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
+enemyIdentity = SubResource("Resource_lxm7n")
 
 [node name="TransporterArea2" parent="." instance=ExtResource("11_xbseu")]
 position = Vector2(81, 747)
@@ -2677,26 +2715,3 @@ destinyPosition = Vector2(480, 360)
 
 [node name="SwordBlue" parent="." instance=ExtResource("11_sje47")]
 position = Vector2(892, 893)
-
-[node name="Itens" type="Node2D" parent="."]
-position = Vector2(826, 411)
-
-[node name="ItemArea" parent="Itens" instance=ExtResource("14_exaed")]
-position = Vector2(-13, 132)
-item = ExtResource("15_c5ge0")
-
-[node name="ItemArea2" parent="Itens" instance=ExtResource("14_exaed")]
-position = Vector2(-678, -52)
-item = ExtResource("15_c5ge0")
-
-[node name="ItemArea3" parent="Itens" instance=ExtResource("14_exaed")]
-position = Vector2(122, 496)
-item = ExtResource("16_eailo")
-
-[node name="ItemArea5" parent="Itens" instance=ExtResource("14_exaed")]
-position = Vector2(-282, 422)
-item = ExtResource("16_eailo")
-
-[node name="ItemArea4" parent="Itens" instance=ExtResource("14_exaed")]
-position = Vector2(-452, 271)
-item = ExtResource("16_eailo")

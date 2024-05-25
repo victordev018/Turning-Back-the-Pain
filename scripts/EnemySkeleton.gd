@@ -6,7 +6,9 @@ class_name Enemy
 @onready var healthbar = $HealthBar
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer;
 
+@export_category("Settings Enemy")
 @export var enemyResource: EnemyResource
+@export var enemyIdentity: EnemyIdentity
 
 var SPEED: float;
 var health: int;
@@ -80,6 +82,10 @@ func state_machine():
 			enemy_sprite.play("Death")
 			await get_tree().create_timer(0.69).timeout
 			createExplosionParticles();
+			ItemManage.nameEnemy = enemyIdentity.nameEnemy;
+			ItemManage.positionDeath = global_position;
+			if ItemManage.nameEnemy != "":
+				ItemManage.dropItem();
 			queue_free()
 			
 	else:

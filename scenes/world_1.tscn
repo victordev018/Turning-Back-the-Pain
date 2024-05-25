@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=18 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -6,22 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://d4kyy8i518nj0" path="res://scenes/skeleton.tscn" id="2_h4jl3"]
 [ext_resource type="PackedScene" uid="uid://cxhr2idu8by75" path="res://scenes/ui.tscn" id="3_q4du6"]
 [ext_resource type="PackedScene" uid="uid://du13gw0obevb8" path="res://scenes/objects_terrain.tscn" id="4_l475j"]
+[ext_resource type="Script" path="res://resources/Identity/enemyIdentity.gd" id="6_mp1ig"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
-[ext_resource type="SpriteFrames" uid="uid://db502fvp85dn8" path="res://resources/enemy/skeleton/skeleton_sprite_rogue_frames.tres" id="8_r52qy"]
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_ongtp"]
 [ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="14_0qq3t"]
 [ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="15_wit8o"]
-[ext_resource type="PackedScene" uid="uid://v3ay7rjxxyl2" path="res://scenes/enemy.tscn" id="17_8mwb0"]
-[ext_resource type="Resource" uid="uid://c7nhd63gwrb0o" path="res://resources/enemy/skeleton.tres" id="18_d2sop"]
-[ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="20_hvl3t"]
 
-[sub_resource type="Resource" id="Resource_mifho"]
-script = ExtResource("20_hvl3t")
-SPEED = 60.0
-enemy_sprite_frames = ExtResource("8_r52qy")
-health = 6
-damage = 1
+[sub_resource type="Resource" id="Resource_u670w"]
+script = ExtResource("6_mp1ig")
+nameEnemy = "enemy1"
+
+[sub_resource type="Resource" id="Resource_ni04c"]
+script = ExtResource("6_mp1ig")
+nameEnemy = "enemy2"
+
+[sub_resource type="Resource" id="Resource_lu1h5"]
+script = ExtResource("6_mp1ig")
+nameEnemy = "enemy3"
 
 [sub_resource type="Gradient" id="Gradient_3vexf"]
 offsets = PackedFloat32Array(0, 0.506667, 1)
@@ -61,16 +63,15 @@ layer_0/tile_data = PackedInt32Array(1507330, 2, 9, 1507332, 196610, 2, 1507333,
 
 [node name="Enemy" parent="Ysort" instance=ExtResource("2_h4jl3")]
 position = Vector2(936, 206)
+enemyIdentity = SubResource("Resource_u670w")
 
-[node name="Enemy2" parent="Ysort" instance=ExtResource("17_8mwb0")]
-position = Vector2(719, 399)
-collision_mask = 2
-enemyResource = ExtResource("18_d2sop")
+[node name="Enemy2" parent="Ysort" instance=ExtResource("2_h4jl3")]
+position = Vector2(709, 144)
+enemyIdentity = SubResource("Resource_ni04c")
 
-[node name="Enemy3" parent="Ysort" instance=ExtResource("17_8mwb0")]
-position = Vector2(679, 178)
-collision_mask = 2
-enemyResource = SubResource("Resource_mifho")
+[node name="Enemy3" parent="Ysort" instance=ExtResource("2_h4jl3")]
+position = Vector2(737, 381)
+enemyIdentity = SubResource("Resource_lu1h5")
 
 [node name="UI" parent="." instance=ExtResource("3_q4du6")]
 
