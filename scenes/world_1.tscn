@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://srunw4fd2jyp"]
+[gd_scene load_steps=16 format=3 uid="uid://srunw4fd2jyp"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_l55ne"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="1_rnydu"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="7_mfvhv"]
 [ext_resource type="Texture2D" uid="uid://duux8m2leiiki" path="res://assets/aaaa.png" id="9_3mr1y"]
 [ext_resource type="PackedScene" uid="uid://bfff07e88i514" path="res://scenes/transporter_area.tscn" id="11_ongtp"]
-[ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="14_0qq3t"]
-[ext_resource type="Resource" uid="uid://oxiyjfm05ced" path="res://Inventory/Items/redPotion.tres" id="15_wit8o"]
 
 [sub_resource type="Resource" id="Resource_u670w"]
 script = ExtResource("6_mp1ig")
@@ -112,11 +110,3 @@ color_ramp = SubResource("Gradient_qt2dw")
 position = Vector2(1137, 296)
 destinyScene = "world2"
 destinyPosition = Vector2(890, 370)
-
-[node name="ItemArea" parent="." instance=ExtResource("14_0qq3t")]
-position = Vector2(155, 449)
-item = ExtResource("15_wit8o")
-
-[node name="ItemArea2" parent="." instance=ExtResource("14_0qq3t")]
-position = Vector2(1024, 310)
-item = ExtResource("15_wit8o")
