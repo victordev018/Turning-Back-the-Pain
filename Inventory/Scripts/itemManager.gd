@@ -40,7 +40,9 @@ var itemsActions: Dictionary = {
 var dropItemEnemy: Dictionary = {
 	"enemy1" : Callable(self, "dropPotionCure"),
 	"enemy2" : Callable(self, "dropPotionVelocity"),
-	"enemy3" : Callable(self, "dropPotionForce")
+	"enemy3" : Callable(self, "dropPotionForce"),
+	"enemy4" : Callable(self, "dropSwordBlue"),
+	"enemy5" : Callable(self, "dropSwordRed")
 }
 
 
@@ -48,6 +50,13 @@ var dropItemEnemy: Dictionary = {
 func dropItem() -> void:
 	var function: Callable = dropItemEnemy.get(nameEnemy);
 	function.call();
+
+## Função para dropar a espada blue:
+func dropSwordBlue() -> void:
+	var swordBlue = preload("res://Inventory/collectibles/itemAreaSwordBlue.tscn");
+	var swordInstance = swordBlue.instantiate();
+	swordInstance.position = positionDeath;
+	add_child(swordInstance);
 
 ## função para dropar porção de cura:
 func dropPotionCure() -> void:
