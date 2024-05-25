@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgh37nc21pner"]
+[gd_scene load_steps=18 format=3 uid="uid://bgh37nc21pner"]
 
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_b60eb"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_cajc4"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://eu6wvqil42lc" path="res://Items/sword_red.tscn" id="10_bb7qx"]
 [ext_resource type="SpriteFrames" uid="uid://dnnoqfhmejof8" path="res://resources/enemy/skeleton/orc_sprite_enemy.tres" id="10_lldb1"]
 [ext_resource type="Script" path="res://scripts/enemy_resource.gd" id="11_277ds"]
-[ext_resource type="PackedScene" uid="uid://d3krqwsnqecvh" path="res://Inventory/collectibles/ItemArea.tscn" id="13_0ux5k"]
-[ext_resource type="Resource" uid="uid://bmjnhx7s8q03d" path="res://Inventory/Items/brownPotion.tres" id="14_a4e0m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ff1rv"]
 texture = ExtResource("1_b60eb")
@@ -2728,25 +2726,3 @@ destinyPosition = Vector2(340, 40)
 
 [node name="SwordRed" parent="." instance=ExtResource("10_bb7qx")]
 position = Vector2(1254, 1114)
-
-[node name="Itens" type="Node2D" parent="."]
-
-[node name="ItemArea" parent="Itens" instance=ExtResource("13_0ux5k")]
-position = Vector2(512, 529)
-item = ExtResource("14_a4e0m")
-
-[node name="ItemArea2" parent="Itens" instance=ExtResource("13_0ux5k")]
-position = Vector2(512, 529)
-item = ExtResource("14_a4e0m")
-
-[node name="ItemArea3" parent="Itens" instance=ExtResource("13_0ux5k")]
-position = Vector2(1886, 827)
-item = ExtResource("14_a4e0m")
-
-[node name="ItemArea4" parent="Itens" instance=ExtResource("13_0ux5k")]
-position = Vector2(1471, 182)
-item = ExtResource("14_a4e0m")
-
-[node name="ItemArea5" parent="Itens" instance=ExtResource("13_0ux5k")]
-position = Vector2(1095, 231)
-item = ExtResource("14_a4e0m")
