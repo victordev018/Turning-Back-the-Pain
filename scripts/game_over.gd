@@ -1,6 +1,11 @@
 extends CanvasLayer
 
 func _ready():
+	Global.rainMusic.stop();
+	Global.cave1Music.stop();
+	Global.cave2Music.stop();
+	Global.bossMusic.stop();
+	Global.gameOverMusic.play();
 	Global.playerHealth = Global.playerMaxHealth
 func _process(delta):
 	pass

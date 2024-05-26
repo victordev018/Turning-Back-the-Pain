@@ -7,6 +7,12 @@ func _on_new_game_button_pressed():
 	Global.changeScene("cutscene");
 
 func _ready() -> void:
+	Global.rainMusic.stop();
+	Global.cave1Music.stop();
+	Global.cave2Music.stop();
+	Global.bossMusic.stop();
+	Global.gameOverMusic.stop();
+	Global.gameWinMusic.stop();
 	Global.menuMusic.play();
 
 func _process(delta):

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci5a2taiqo3g5"]
+[gd_scene load_steps=10 format=3 uid="uid://ci5a2taiqo3g5"]
 
 [ext_resource type="Script" path="res://scripts/Global.gd" id="1_tt5qp"]
-[ext_resource type="AudioStream" uid="uid://cd3ainls3i3u" path="res://Sounds/music_init.mp3" id="2_kn4as"]
+[ext_resource type="AudioStream" uid="uid://b22uo6bg1il2p" path="res://Sounds/music_init.mp3" id="2_kn4as"]
+[ext_resource type="AudioStream" uid="uid://5tdynqgi8tep" path="res://Sounds/music menu.mp3" id="2_qxply"]
 [ext_resource type="AudioStream" uid="uid://chgy6v7ssd2w7" path="res://Sounds/music_rain.mp3" id="3_shvc0"]
 [ext_resource type="AudioStream" uid="uid://be5g1e5ln88hd" path="res://Sounds/music cave p1.mp3" id="4_lhxtj"]
+[ext_resource type="AudioStream" uid="uid://di3is5drtf3po" path="res://Sounds/music cave p2.mp3" id="6_vcm7p"]
+[ext_resource type="AudioStream" uid="uid://ydonsn5etd7n" path="res://Sounds/music batle boss.mp3" id="7_id7wc"]
+[ext_resource type="AudioStream" uid="uid://33qp220qfjb" path="res://Sounds/music game win.mp3" id="8_8f1ws"]
+[ext_resource type="AudioStream" uid="uid://bg4wbdnl3mtv3" path="res://Sounds/music game over.mp3" id="8_bfbii"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_tt5qp")
@@ -11,10 +16,25 @@ script = ExtResource("1_tt5qp")
 [node name="Musics" type="Node" parent="."]
 
 [node name="menuMusic" type="AudioStreamPlayer2D" parent="Musics"]
-stream = ExtResource("2_kn4as")
+stream = ExtResource("2_qxply")
 
 [node name="rainMusic" type="AudioStreamPlayer2D" parent="Musics"]
 stream = ExtResource("3_shvc0")
 
 [node name="cave1Music" type="AudioStreamPlayer2D" parent="Musics"]
 stream = ExtResource("4_lhxtj")
+
+[node name="initMusic" type="AudioStreamPlayer2D" parent="Musics"]
+stream = ExtResource("2_kn4as")
+
+[node name="cave2Music" type="AudioStreamPlayer2D" parent="Musics"]
+stream = ExtResource("6_vcm7p")
+
+[node name="bossMusic" type="AudioStreamPlayer2D" parent="Musics"]
+stream = ExtResource("7_id7wc")
+
+[node name="gameWinMusic" type="AudioStreamPlayer2D" parent="Musics"]
+stream = ExtResource("8_8f1ws")
+
+[node name="gameoverMusic" type="AudioStreamPlayer2D" parent="Musics"]
+stream = ExtResource("8_bfbii")

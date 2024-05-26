@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://bgh37nc21pner"]
 
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="1_b60eb"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_cajc4"]
+[ext_resource type="Script" path="res://scripts/world_3.gd" id="1_r5dmf"]
 [ext_resource type="Texture2D" uid="uid://b63x6ikuve2ny" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="2_omxjo"]
 [ext_resource type="Texture2D" uid="uid://cfmavt2287qlj" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/cave.png" id="3_2u6wa"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="4_1cpad"]
@@ -2672,7 +2672,7 @@ script = ExtResource("12_gf6h0")
 nameEnemy = "enemy5"
 
 [node name="World-3" type="Node2D"]
-script = ExtResource("1_cajc4")
+script = ExtResource("1_r5dmf")
 
 [node name="Dungeon" type="TileMap" parent="."]
 position = Vector2(4, 36)

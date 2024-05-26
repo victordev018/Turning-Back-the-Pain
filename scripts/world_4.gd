@@ -14,4 +14,6 @@ func _on_end_level_timer_timeout():
 	Global.changeScene("final")
 	
 func _ready():
+	Global.cave2Music.stop();
+	Global.bossMusic.play();
 	Global.levelNode = self
