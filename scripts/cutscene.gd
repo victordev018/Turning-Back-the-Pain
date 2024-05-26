@@ -13,6 +13,10 @@ var cutsceneTexts: Array[String] = [
 var page: int = 0;
 @onready var cutsceneLabel: Label = get_node("CanvasLayer/Panel/Label");
 
+func _ready() -> void:
+	Global.menuMusic.stop();
+	Global.initMusic.play();
+
 func _process(delta):
 	progress = move_toward(progress, 1.0, 0.0168/2);
 	cutsceneLabel.visible_ratio = progress;

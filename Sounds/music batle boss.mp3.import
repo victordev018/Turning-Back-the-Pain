@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ydonsn5etd7n"
+path="res://.godot/imported/music batle boss.mp3-cf15d81d4420ccad5baec51714f81229.mp3str"
+
+[deps]
+
+source_file="res://Sounds/music batle boss.mp3"
+dest_files=["res://.godot/imported/music batle boss.mp3-cf15d81d4420ccad5baec51714f81229.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

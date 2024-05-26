@@ -1,6 +1,13 @@
 extends Node2D
 
 func _ready():
+	Global.rainMusic.stop();
+	Global.cave1Music.stop();
+	Global.cave2Music.stop();
+	Global.bossMusic.stop();
+	Global.gameOverMusic.stop();
+	Global.initMusic.stop();
+	Global.rainMusic.play();
 	Global.levelNode = self;
 	# Consultar se temos uma posição para atribuir ao Player
 	if Global.destinyPosition != Vector2.ZERO:

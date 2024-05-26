@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://be5g1e5ln88hd"
+path="res://.godot/imported/music cave p1.mp3-0684b230515d65f94bb4d1d2097e8436.mp3str"
+
+[deps]
+
+source_file="res://Sounds/music cave p1.mp3"
+dest_files=["res://.godot/imported/music cave p1.mp3-0684b230515d65f94bb4d1d2097e8436.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
