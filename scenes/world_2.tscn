@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://s5xj1sb70ook"]
 
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_rclyr"]
+[ext_resource type="Script" path="res://scripts/world_2.gd" id="1_wk64g"]
 [ext_resource type="Texture2D" uid="uid://c1mda3cl3yv5y" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Tiles.png" id="2_r64ua"]
 [ext_resource type="Texture2D" uid="uid://b63x6ikuve2ny" path="res://assets/Pixel Crawler - FREE - 1.8/Environment/Dungeon Prison/Assets/Props.png" id="3_lpe0q"]
 [ext_resource type="PackedScene" uid="uid://cgqkpqbj3nt8d" path="res://scenes/player.tscn" id="3_sfqf0"]
@@ -2563,7 +2563,7 @@ script = ExtResource("13_4fw6j")
 nameEnemy = "enemy4"
 
 [node name="World-2" type="Node2D"]
-script = ExtResource("1_rclyr")
+script = ExtResource("1_wk64g")
 metadata/_edit_vertical_guides_ = [69.0]
 metadata/_edit_horizontal_guides_ = [320.0]
 
