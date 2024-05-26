@@ -4,7 +4,10 @@ var appearingProgress: float = 0.0;
 @onready var container = get_node("CanvasLayer/VBoxContainer");
 
 func _on_new_game_button_pressed():
-	Global.changeScene("cutscene")
+	Global.changeScene("cutscene");
+
+func _ready() -> void:
+	Global.menuMusic.play();
 
 func _process(delta):
 	container.position.x = lerp(container.position.x, 85.0, 0.05);

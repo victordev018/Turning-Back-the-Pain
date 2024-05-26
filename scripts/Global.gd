@@ -1,5 +1,8 @@
 extends Node
 
+## Referências as musicas usadas no jogo.
+@onready var menuMusic: AudioStreamPlayer2D = get_node("Musics/menuMusic");
+@onready var rainMusic: AudioStreamPlayer2D = get_node("Musics/rainMusic");
 ## Referência para o nó do nível atual
 var levelNode = null
 ## Referência para o nó da interface do usuário
