@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr42jns1kpeo0"]
+[gd_scene load_steps=7 format=3 uid="uid://cr42jns1kpeo0"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_fe2f8"]
 [ext_resource type="Texture2D" uid="uid://rfndslkmu0e7" path="res://assets/Default_This_is_a_cave_that_should_have_a_very_dark_entrance_a_2.jpg" id="2_rc42c"]
@@ -14,6 +14,9 @@ width = 128
 height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xjqpb"]
+font_size = 6
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_fe2f8")
@@ -65,5 +68,13 @@ text = "Turning Back The Pain"
 
 [node name="FadeOut" parent="." instance=ExtResource("3_5lyoq")]
 visible = false
+
+[node name="Credits" type="Label" parent="."]
+offset_left = 247.0
+offset_top = 190.0
+offset_right = 378.0
+offset_bottom = 206.0
+text = "created by: Joao Victor and Arthur"
+label_settings = SubResource("LabelSettings_xjqpb")
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
