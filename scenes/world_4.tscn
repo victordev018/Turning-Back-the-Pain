@@ -689,6 +689,7 @@ position = Vector2(321, 427)
 scale = Vector2(3, 3)
 enemyResource = SubResource("Resource_wgjj0")
 enemyIdentity = SubResource("Resource_fsgny")
+bossEnemy = true
 
 [node name="UI" parent="." instance=ExtResource("6_heoxp")]
 
