@@ -2698,117 +2698,119 @@ visible = false
 
 [node name="ItemsCollectibles" type="Node" parent="."]
 
-[node name="TransporterArea" parent="." instance=ExtResource("8_7vxqk")]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1685, 456)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_0amvr")
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1700, 597)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_65jrt")
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1810, 727)
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_ldwvx")
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1634, 928)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_j0vsp")
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1329, 1004)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_jtejy")
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1395, 1140)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_v54jp")
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1153, 1178)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_lwwx7")
+
+[node name="Enemy16" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(649, 875)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_wwoxd")
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(456, 979)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_birxl")
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(931, 606)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_i68vd")
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1212, 612)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_fq8vt")
+
+[node name="Enemy20" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(899, 812)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_jkbem")
+
+[node name="Enemy24" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1017, 229)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_fr58e")
+
+[node name="Enemy21" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(901, 299)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_8lg55")
+
+[node name="Enemy22" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1104, 329)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_clx45")
+
+[node name="Enemy23" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1195, 827)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_04m4n")
+
+[node name="Enemy25" parent="Enemies" instance=ExtResource("9_l7qf4")]
+position = Vector2(1211, 481)
+collision_mask = 2
+enemyResource = SubResource("Resource_8gwn0")
+enemyIdentity = SubResource("Resource_0wuds")
+
+[node name="TransporterAreas" type="Node2D" parent="."]
+
+[node name="TransporterArea" parent="TransporterAreas" instance=ExtResource("8_7vxqk")]
 position = Vector2(483, 313)
 rotation = -1.54711
 scale = Vector2(0.802675, 0.564228)
 destinyScene = "world2"
 destinyPosition = Vector2(110, 740)
 
-[node name="Enemy" type="Node" parent="."]
-
-[node name="Enemy9" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1685, 456)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_0amvr")
-
-[node name="Enemy10" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1700, 597)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_65jrt")
-
-[node name="Enemy11" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1810, 727)
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_ldwvx")
-
-[node name="Enemy12" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1634, 928)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_j0vsp")
-
-[node name="Enemy13" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1329, 1004)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_jtejy")
-
-[node name="Enemy14" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1395, 1140)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_v54jp")
-
-[node name="Enemy15" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1153, 1178)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_lwwx7")
-
-[node name="Enemy16" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(649, 875)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_wwoxd")
-
-[node name="Enemy17" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(456, 979)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_birxl")
-
-[node name="Enemy18" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(931, 606)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_i68vd")
-
-[node name="Enemy19" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1212, 612)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_fq8vt")
-
-[node name="Enemy20" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(899, 812)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_jkbem")
-
-[node name="Enemy24" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1017, 229)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_fr58e")
-
-[node name="Enemy21" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(901, 299)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_8lg55")
-
-[node name="Enemy22" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1104, 329)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_clx45")
-
-[node name="Enemy23" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1195, 827)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_04m4n")
-
-[node name="Enemy25" parent="Enemy" instance=ExtResource("9_l7qf4")]
-position = Vector2(1211, 481)
-collision_mask = 2
-enemyResource = SubResource("Resource_8gwn0")
-enemyIdentity = SubResource("Resource_0wuds")
-
-[node name="TransporterArea2" parent="." instance=ExtResource("8_7vxqk")]
+[node name="TransporterArea2" parent="TransporterAreas" instance=ExtResource("8_7vxqk")]
 position = Vector2(1363, 34)
 scale = Vector2(0.917457, 0.781091)
 destinyScene = "world4"

@@ -68,6 +68,8 @@ func follow_player(delta):
 	redAmount = move_toward(redAmount, 0.0, 0.0250);
 	
 	if dead:
+		var _collisionBox = get_node("HitBox2/Collision") as CollisionShape2D;
+		_collisionBox.disabled = true;
 		$SwordNode.visible = false;
 		velocity = Vector2.ZERO
 		var _col = get_node("HurtBox/CollisionShape2D") as CollisionShape2D
@@ -86,8 +88,9 @@ func state_machine():
 			createExplosionParticles();
 				
 			var _enemyName = enemyIdentity.nameEnemy;
-			var _itemToDrop = ItemManage.enemyDropItems.get(_enemyName);
-			ItemManage.spawnDroppedItem(global_position, _itemToDrop);
+			if _enemyName != "":
+				var _itemToDrop = ItemManage.enemyDropItems.get(_enemyName);
+				ItemManage.spawnDroppedItem(global_position, _itemToDrop);
 			
 			queue_free()
 			
@@ -99,6 +102,11 @@ func state_machine():
 
 
 func takeDamage(amount):
+	var _damageScene = preload("res://scenes/damage_show.tscn");
+	var _dShow = _damageScene.instantiate();
+	_dShow.global_position = Vector2(randf_range(-3.0, 3.0) + global_position.x, randf_range(-3.0, 3.0) + global_position.y);
+	_dShow.damage = amount;
+	Global.levelNode.add_child(_dShow);
 	print("[ENEMY] - Dano recebido: %s." % [amount])
 	health -= amount;
 	healthBar.setHealth(health);
