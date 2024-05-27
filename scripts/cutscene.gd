@@ -33,3 +33,7 @@ func _process(delta):
 		else:
 			# Cutscene acabou. Migrar para jogo.
 			Global.changeScene("world")
+
+
+func _on_button_pressed():
+	Global.changeScene("world")

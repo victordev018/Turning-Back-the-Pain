@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://di1ba81125tkm"]
+[gd_scene load_steps=10 format=3 uid="uid://di1ba81125tkm"]
 
 [ext_resource type="Texture2D" uid="uid://bmsa7ehb6i1es" path="res://assets/TilesetGrass (1)/TilesetGrass/overworld_tileset_grass.png" id="1_63fy6"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="2_s86ok"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="3_w2rfi"]
+[ext_resource type="PackedScene" uid="uid://djb62d1mm2xc4" path="res://scenes/buttonContinue.tscn" id="4_3bl24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xr3i7"]
 texture = ExtResource("1_63fy6")
@@ -560,3 +561,7 @@ zoom = Vector2(1, 1.1)
 
 [node name="FadeOut" parent="." instance=ExtResource("3_w2rfi")]
 visible = false
+
+[node name="Button" parent="." instance=ExtResource("4_3bl24")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

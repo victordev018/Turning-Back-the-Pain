@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://djb62d1mm2xc4"]
+
+[node name="Button" type="Button"]
+offset_left = 305.0
+offset_top = 21.0
+offset_right = 384.0
+offset_bottom = 52.0
+scale = Vector2(0.5, 0.5)
+text = "Continue"
