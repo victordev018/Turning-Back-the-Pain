@@ -9,6 +9,7 @@ extends Node
 @onready var bossMusic: AudioStreamPlayer2D = get_node("Musics/bossMusic");
 @onready var gameWinMusic: AudioStreamPlayer2D = get_node("Musics/gameWinMusic");
 @onready var gameOverMusic: AudioStreamPlayer2D = get_node("Musics/gameoverMusic");
+
 ## Referência para o nó do nível atual
 var levelNode = null
 ## Referência para o nó da interface do usuário
@@ -41,3 +42,10 @@ func changeScene(newScene : String):
 	transPatro.destinyScene = scenes.get(newScene)
 	add_child(transPatro)
 	
+## Função que checa se não há mais nenhum inimigo no mapa, se não tiver ele libera a passagem do portal:
+func openDoorIfNoEnemies() -> void:
+	var _enemiesNode = levelNode.find_child("Enemies");
+	if len(_enemiesNode.get_children()) <= 0:
+		var _transportAreas = levelNode.get_node("TransporterAreas");
+		for transArea in _transportAreas.get_children():
+			transArea.get_child(0).disabled = false;

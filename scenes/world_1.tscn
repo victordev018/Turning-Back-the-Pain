@@ -59,15 +59,17 @@ camera_limit = Vector2(1150, 590)
 z_index = 5
 layer_0/tile_data = PackedInt32Array(1507330, 2, 9, 1507332, 196610, 2, 1507333, 262146, 2, 851973, 196608, 8, 1114122, 524288, 0, 262156, 2, 6, 589837, 0, 8, 262145, 327682, 2, 1245202, 196608, 8, 851983, 0, 0, 524310, 524288, 0, 983062, 327682, 2, 983064, 0, 0, 1048599, 589826, 4, 1048600, 655362, 4, 983065, 720898, 5, 983067, 2, 9, 524316, 0, 0, 196643, 2, 2, 262187, 327682, 0, 196657, 2, 4, 262193, 2, 5, 196658, 65538, 4, 262194, 65538, 5, 524343, 0, 0, 458819, 524288, 8, 196668, 2, 6, 262207, 2, 1, 262202, 2, 1, 852029, 2, 1, 589885, 2, 6, 2031681, 524288, 0, 2162749, 2, 9, 1966139, 2, 1, 2097215, 2, 1, 1900613, 131074, 2, 1769526, 196608, 8, 1179696, 524288, 0, 1179693, 589826, 4, 1245230, 655362, 4, 1245231, 655362, 4, 1310767, 655362, 5, 1245232, 720898, 4, 1179697, 720898, 4, 1245233, 655362, 4, 1179698, 655362, 3, 1179700, 131074, 0, 1441837, 2, 1, 1507377, 2, 1, 2228261, 327682, 2, 2228258, 524290, 3, 1703976, 131074, 2, 1900578, 131074, 2, 2162717, 196608, 0, 2031633, 0, 8, 2293781, 524288, 0, 2293777, 655362, 4, 2228242, 720898, 4, 2228240, 720898, 4, 2293776, 720898, 4, 2293778, 720898, 4, 2293783, 720898, 4, 2293784, 720898, 4, 2228248, 720898, 4, 2293785, 655362, 4, 2359319, 655362, 4, 2359317, 655362, 4, 2359315, 655362, 5, 1835022, 196610, 1, 2162698, 196610, 2, 1966091, 196610, 2, 1966092, 196610, 0, 2162701, 2, 2, 2228230, 196610, 2, 2228231, 196610, 0, 2162696, 2, 6, 720930, 2, 6)
 
-[node name="Enemy" parent="Ysort" instance=ExtResource("2_h4jl3")]
+[node name="Enemies" type="Node2D" parent="Ysort"]
+
+[node name="Enemy" parent="Ysort/Enemies" instance=ExtResource("2_h4jl3")]
 position = Vector2(936, 206)
 enemyIdentity = SubResource("Resource_u670w")
 
-[node name="Enemy2" parent="Ysort" instance=ExtResource("2_h4jl3")]
+[node name="Enemy2" parent="Ysort/Enemies" instance=ExtResource("2_h4jl3")]
 position = Vector2(709, 144)
 enemyIdentity = SubResource("Resource_ni04c")
 
-[node name="Enemy3" parent="Ysort" instance=ExtResource("2_h4jl3")]
+[node name="Enemy3" parent="Ysort/Enemies" instance=ExtResource("2_h4jl3")]
 position = Vector2(737, 381)
 enemyIdentity = SubResource("Resource_lu1h5")
 
@@ -106,7 +108,9 @@ direction = Vector2(0, -1)
 gravity = Vector2(0, 12)
 color_ramp = SubResource("Gradient_qt2dw")
 
-[node name="TransporterArea" parent="." instance=ExtResource("11_ongtp")]
+[node name="TransporterAreas" type="Node2D" parent="."]
+
+[node name="TransporterArea" parent="TransporterAreas" instance=ExtResource("11_ongtp")]
 position = Vector2(1137, 296)
 destinyScene = "world2"
 destinyPosition = Vector2(890, 370)

@@ -2591,13 +2591,6 @@ visible = false
 
 [node name="ItemsCollectibles" type="Node" parent="."]
 
-[node name="TransporterArea" parent="." instance=ExtResource("11_xbseu")]
-position = Vector2(890, 341)
-rotation = -1.54711
-scale = Vector2(0.802675, 0.564228)
-destinyScene = "world"
-destinyPosition = Vector2(1090, 310)
-
 [node name="LavaParticlesNode" type="Node2D" parent="."]
 
 [node name="LavaParticles01" type="CPUParticles2D" parent="LavaParticlesNode"]
@@ -2660,63 +2653,72 @@ scale_amount_curve = SubResource("Curve_8jk2u")
 color = Color(1, 1, 0.956863, 1)
 color_ramp = SubResource("Gradient_35wcp")
 
-[node name="Enemy8" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="Enemy" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(835, 888)
 collision_mask = 2
 enemyResource = SubResource("Resource_olnm3")
 enemyIdentity = SubResource("Resource_sdvkw")
 
-[node name="Enemy2" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy2" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(931, 816)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_bw362")
 
-[node name="Enemy3" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy3" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(225, 471)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_aim2f")
 
-[node name="Enemy4" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy4" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(252, 767)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_h6upv")
 
-[node name="Enemy5" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy5" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(431, 886)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_pmqew")
 
-[node name="Enemy6" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy6" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(771, 537)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_wpiat")
 
-[node name="Enemy7" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy7" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(531, 393)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_xw7fx")
 
-[node name="Enemy8" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy8" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(571, 548)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_lxm7n")
 
-[node name="Enemy9" parent="Enemy8" instance=ExtResource("10_jnpr1")]
+[node name="Enemy9" parent="Enemies" instance=ExtResource("10_jnpr1")]
 position = Vector2(776, 431)
 collision_mask = 2
 enemyResource = SubResource("Resource_blemw")
 enemyIdentity = SubResource("Resource_hmhu4")
 
-[node name="TransporterArea2" parent="." instance=ExtResource("11_xbseu")]
+[node name="TransporterAreas" type="Node2D" parent="."]
+
+[node name="TransporterArea" parent="TransporterAreas" instance=ExtResource("11_xbseu")]
+position = Vector2(890, 341)
+rotation = -1.54711
+scale = Vector2(0.802675, 0.564228)
+destinyScene = "world"
+destinyPosition = Vector2(1090, 310)
+
+[node name="TransporterArea2" parent="TransporterAreas" instance=ExtResource("11_xbseu")]
 position = Vector2(81, 747)
 scale = Vector2(0.96992, 0.721466)
 destinyScene = "world3"

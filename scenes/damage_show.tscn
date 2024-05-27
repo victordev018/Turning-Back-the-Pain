@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ykbri51grel"]
+
+[ext_resource type="Script" path="res://scripts/DamageShow.gd" id="1_2fkxu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eaud2"]
+font_size = 10
+font_color = Color(0.65869, 0, 0.0161802, 1)
+
+[node name="DamageShow" type="Node2D"]
+script = ExtResource("1_2fkxu")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(30, 30)
+text = "2"
+label_settings = SubResource("LabelSettings_eaud2")
+horizontal_alignment = 1
+vertical_alignment = 1
