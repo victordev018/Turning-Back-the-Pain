@@ -13,8 +13,10 @@ func _on_pressed():
 ## Decrementa o item que foi clicado caso o uso tenha sido feito:
 func removeItem(nameItem, slot):
 	for i in range(slot.size()):
-		if (slot[i].item.name == nameItem):
+		if (slot[i].item != null and slot[i].item.name == nameItem):
 			slot[i].amount -= 1;
-			print("amount: ", slot[i].amount)
+			if slot[i].amount <= 0:
+				slot[i].amount = 0
+				slot[i].item = null;
 			get_parent().uppdatIcon(slot[i])
 			return;
