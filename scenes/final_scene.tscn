@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqy1gkvxxdwpb"]
+[gd_scene load_steps=7 format=3 uid="uid://bqy1gkvxxdwpb"]
 
 [ext_resource type="Script" path="res://scripts/final_scene.gd" id="1_glym8"]
 [ext_resource type="Texture2D" uid="uid://bmsa7ehb6i1es" path="res://assets/TilesetGrass (1)/TilesetGrass/overworld_tileset_grass.png" id="1_srawl"]
+[ext_resource type="PackedScene" uid="uid://djb62d1mm2xc4" path="res://scenes/buttonContinue.tscn" id="3_x3h8l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xr3i7"]
 texture = ExtResource("1_srawl")
@@ -491,12 +492,6 @@ clip_text = true
 position = Vector2(175, 104)
 zoom = Vector2(1, 1.1)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 305.0
-offset_top = 21.0
-offset_right = 384.0
-offset_bottom = 52.0
-scale = Vector2(0.5, 0.5)
-text = "Continue"
+[node name="Button" parent="." instance=ExtResource("3_x3h8l")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
