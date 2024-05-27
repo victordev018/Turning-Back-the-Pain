@@ -1,10 +1,6 @@
 extends Node
 ## classe responsável por gerenciar os itens e suas utilidades.
 
-## informações do inimigo que acabou de morrer:
-var nameEnemy: String
-var positionDeath: Vector2
-
 ## variávris que controla a interface do inventário:
 @onready var invPlay: Inventory = preload("res://Inventory/inventorys/player_inventory.tres");
 
@@ -37,54 +33,30 @@ var itemsActions: Dictionary = {
 }
 
 ## Dicionário de itemns dropáveis para cada inimigo.
-var dropItemEnemy: Dictionary = {
-	"enemy1" : Callable(self, "dropPotionCure"),
-	"enemy2" : Callable(self, "dropPotionVelocity"),
-	"enemy3" : Callable(self, "dropPotionForce"),
-	"enemy4" : Callable(self, "dropSwordBlue"),
-	"enemy5" : Callable(self, "dropSwordRed"),
+var enemyDropItems: Dictionary = {
+	"enemy1" : "potionCure",
+	"enemy2" : "potionVelocity",
+	"enemy3" : "potionForce",
+	"enemy4" : "swordBlue",
+	"enemy5" : "swordRed",
+}
+
+var itemsDatabase: Dictionary = {
+	"potionCure": preload("res://Inventory/collectibles/ItemAreaPotionCure.tscn"),
+	"potionVelocity": preload("res://Inventory/collectibles/ItemAreaPotionVelocity.tscn"),
+	"potionForce": preload("res://Inventory/collectibles/ItemAreaPotionForce.tscn"),
+	"swordBlue": preload("res://Inventory/collectibles/itemAreaSwordBlue.tscn"),
+	"swordRed": preload("res://Inventory/collectibles/itemAreaSwordRed.tscn")
 }
 
 
 ## Função para instanciar um novo tem na cena.
-func dropItem() -> void:
-	var function: Callable = dropItemEnemy.get(nameEnemy);
-	function.call();
-
-## Função para dropar a espada vermelha:
-func dropSwordRed() -> void:
-	var swordRed = preload("res://Inventory/collectibles/itemAreaSwordRed.tscn");
-	var swordInstance = swordRed.instantiate();
-	swordInstance.position = positionDeath;
-	add_child(swordInstance);
-
-## Função para dropar a espada azul:
-func dropSwordBlue() -> void:
-	var swordBlue = preload("res://Inventory/collectibles/itemAreaSwordBlue.tscn");
-	var swordInstance = swordBlue.instantiate();
-	swordInstance.position = positionDeath;
-	add_child(swordInstance);
-
-## função para dropar porção de cura:
-func dropPotionCure() -> void:
-	var potionCure = preload("res://Inventory/collectibles/ItemAreaPotionCure.tscn");
-	var potionInstance = potionCure.instantiate()
-	potionInstance.position = positionDeath;
-	add_child(potionInstance);
-	
-## função para dropar porção de Velocity:
-func dropPotionVelocity() -> void:
-	var potionVelocity = preload("res://Inventory/collectibles/ItemAreaPotionVelocity.tscn");
-	var potionInstance = potionVelocity.instantiate()
-	potionInstance.position = positionDeath;
-	add_child(potionInstance);
-	
-## função para dropar porção de Força:
-func dropPotionForce() -> void:
-	var potionForce = preload("res://Inventory/collectibles/ItemAreaPotionForce.tscn");
-	var potionInstance = potionForce.instantiate()
-	potionInstance.position = positionDeath;
-	add_child(potionInstance);
+func spawnDroppedItem(_pos, _itemKey) -> void:
+	var _itemScene = itemsDatabase.get(_itemKey) as PackedScene;
+	var _item = _itemScene.instantiate();
+	_item.global_position = _pos;
+	Global.levelNode.add_child(_item);
+	print("Item %s adicionado na posição %s." % [_itemKey, _pos])
 	
 ## função para consumir item.
 func useItem(itemKey: String) -> bool:

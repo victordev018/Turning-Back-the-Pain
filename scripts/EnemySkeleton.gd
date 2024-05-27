@@ -18,6 +18,7 @@ var damage: int;
 @onready var healthBar = get_node("HealthBar") as HealthBar
 
 var explosionScene: PackedScene = preload("res://scenes/explosion_particles.tscn")
+@export var bossEnemy: bool = false;
 
 
 var redAmount: float = 0.0;
@@ -27,7 +28,8 @@ func _ready():
 	assert(enemyResource != null, "ERRO: DEFINA O RESOURCE DO INIMIGO")
 	load_resource()
 	player = Global.playerNode
-	healthbar.init_health(health)
+	health = enemyResource.health;
+	healthbar.init_health(health, health)
 
 func _physics_process(delta):
 	follow_player(delta)
@@ -82,10 +84,11 @@ func state_machine():
 			enemy_sprite.play("Death")
 			await get_tree().create_timer(0.69).timeout
 			createExplosionParticles();
-			ItemManage.nameEnemy = enemyIdentity.nameEnemy;
-			ItemManage.positionDeath = global_position;
-			if ItemManage.nameEnemy != "":
-				ItemManage.dropItem();
+				
+			var _enemyName = enemyIdentity.nameEnemy;
+			var _itemToDrop = ItemManage.enemyDropItems.get(_enemyName);
+			ItemManage.spawnDroppedItem(global_position, _itemToDrop);
+			
 			queue_free()
 			
 	else:
