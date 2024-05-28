@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://di1ba81125tkm"]
+[gd_scene load_steps=11 format=3 uid="uid://di1ba81125tkm"]
 
 [ext_resource type="Texture2D" uid="uid://bmsa7ehb6i1es" path="res://assets/TilesetGrass (1)/TilesetGrass/overworld_tileset_grass.png" id="1_63fy6"]
 [ext_resource type="Script" path="res://scripts/cutscene.gd" id="2_s86ok"]
+[ext_resource type="FontFile" uid="uid://bl31vrr3obc3d" path="res://assets/Pixel Crawler - FREE - 1.8/primusscript.ttf" id="3_mpxo2"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="3_w2rfi"]
 [ext_resource type="PackedScene" uid="uid://djb62d1mm2xc4" path="res://scenes/buttonContinue.tscn" id="4_3bl24"]
 
@@ -476,6 +477,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_mpxo2")
 theme_override_font_sizes/font_size = 6
 horizontal_alignment = 1
 vertical_alignment = 1

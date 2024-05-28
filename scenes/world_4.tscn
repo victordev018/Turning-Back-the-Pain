@@ -1674,9 +1674,9 @@ animations = [{
 
 [sub_resource type="Resource" id="Resource_wgjj0"]
 script = ExtResource("9_i5awu")
-SPEED = 60.0
+SPEED = 100.0
 enemy_sprite_frames = SubResource("SpriteFrames_hdxbs")
-health = 30
+health = 50
 damage = 2
 
 [sub_resource type="Resource" id="Resource_fsgny"]

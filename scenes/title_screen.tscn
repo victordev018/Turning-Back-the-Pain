@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr42jns1kpeo0"]
+[gd_scene load_steps=8 format=3 uid="uid://cr42jns1kpeo0"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.gd" id="1_fe2f8"]
 [ext_resource type="Texture2D" uid="uid://rfndslkmu0e7" path="res://assets/Default_This_is_a_cave_that_should_have_a_very_dark_entrance_a_2.jpg" id="2_rc42c"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="3_5lyoq"]
+[ext_resource type="FontFile" uid="uid://bl31vrr3obc3d" path="res://assets/Pixel Crawler - FREE - 1.8/primusscript.ttf" id="3_errgd"]
 
 [sub_resource type="Gradient" id="Gradient_u5arq"]
 offsets = PackedFloat32Array(0.116564, 0.675325)
@@ -39,6 +40,7 @@ pivot_offset = Vector2(90, 0)
 
 [node name="NewGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_errgd")
 text = "New Game"
 
 [node name="Image" type="Sprite2D" parent="."]
@@ -60,21 +62,23 @@ offset_bottom = 234.0
 texture = SubResource("GradientTexture2D_ybw87")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 98.0
+offset_left = 72.0
 offset_top = 23.0
-offset_right = 270.0
-offset_bottom = 46.0
+offset_right = 279.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("3_errgd")
 text = "Turning Back The Pain"
 
 [node name="FadeOut" parent="." instance=ExtResource("3_5lyoq")]
 visible = false
 
 [node name="Credits" type="Label" parent="."]
-offset_left = 247.0
-offset_top = 190.0
-offset_right = 378.0
-offset_bottom = 206.0
-text = "created by: Joao Victor and Arthur"
+offset_left = 186.0
+offset_top = 186.0
+offset_right = 348.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("3_errgd")
+text = "created by: Joao Victor, Arthur and Patrocinio"
 label_settings = SubResource("LabelSettings_xjqpb")
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

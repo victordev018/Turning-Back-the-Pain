@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cecskl8kew1fv"]
+[gd_scene load_steps=5 format=3 uid="uid://cecskl8kew1fv"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_fjmr3"]
+[ext_resource type="Texture2D" uid="uid://drkaroi3l4ifp" path="res://assets/Pixel Crawler - FREE - 1.8/Default_Make_the_skeleton_darker_and_with_a_sword_in_its_hand_1.jpg" id="2_afat7"]
 [ext_resource type="PackedScene" uid="uid://4rwf5kwjba7y" path="res://scenes/fade_out.tscn" id="2_kaist"]
+[ext_resource type="FontFile" uid="uid://bl31vrr3obc3d" path="res://assets/Pixel Crawler - FREE - 1.8/primusscript.ttf" id="3_b0tqy"]
 
 [node name="GameOver" type="CanvasLayer"]
 script = ExtResource("1_fjmr3")
@@ -21,16 +23,23 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Sprite2D" type="Sprite2D" parent="GOscren"]
+position = Vector2(52.5, 43)
+scale = Vector2(0.261905, 0.22433)
+texture = ExtResource("2_afat7")
+
 [node name="restartButon" type="Button" parent="GOscren"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_b0tqy")
 text = "Restart"
 
 [node name="mainMenuButon" type="Button" parent="GOscren"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_b0tqy")
 text = "Main Menu"
 
 [node name="Container" type="Panel" parent="."]
@@ -39,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -90.0
-offset_right = 50.0
-offset_bottom = -40.0
+offset_left = -51.0
+offset_top = -93.0
+offset_right = 49.0
+offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -51,6 +60,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 9.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -59,23 +72,23 @@ color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Container"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.557
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -24.5
-offset_right = 48.0
-offset_bottom = 24.5
+offset_left = -54.0
+offset_top = -15.0
+offset_right = 49.3
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "GAME OVER"
+text = "Game Over"
 horizontal_alignment = 1
 
 [node name="FadeOut" parent="." instance=ExtResource("2_kaist")]
+visible = false
 
 [connection signal="pressed" from="GOscren/restartButon" to="." method="_on_restart_buton_pressed"]
 [connection signal="pressed" from="GOscren/mainMenuButon" to="." method="_on_main_menu_buton_pressed"]
