@@ -77,7 +77,11 @@ func manageSword():
 	# Ajustar escala do player conforme o facing
 	mySword.scale.x = facing
 	# Apontar a espada
-	mySword.look_at(mpos)
+	var xAxis = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
+	var yAxis = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	var analogDirection = Vector2(xAxis, yAxis)
+	print("analogDirection: ", analogDirection)
+	mySword.look_at(mySword.global_position + analogDirection * 4.0)
 	mySword.rotation = mySword.rotation - 280.0 * int(facing < 0)
 
 	# Apontar Player
