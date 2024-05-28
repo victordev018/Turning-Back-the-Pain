@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_06snl"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsg3e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8saa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2asb"]
 bg_color = Color(0.138724, 0.784376, 0, 1)
@@ -23,7 +23,7 @@ bg_color = Color(0.772434, 0, 0.0741925, 1)
 z_index = 1
 offset_right = 240.0
 offset_bottom = 27.0
-theme_override_styles/background = SubResource("StyleBoxEmpty_qsg3e")
+theme_override_styles/background = SubResource("StyleBoxEmpty_f8saa")
 theme_override_styles/fill = SubResource("StyleBoxFlat_c2asb")
 value = 60.0
 show_percentage = false

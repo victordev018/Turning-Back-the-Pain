@@ -1,16 +1,17 @@
-[gd_scene load_steps=40 format=3 uid="uid://cgqkpqbj3nt8d"]
+[gd_scene load_steps=41 format=3 uid="uid://cgqkpqbj3nt8d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dswwk"]
 [ext_resource type="Texture2D" uid="uid://cdr4ug0sjhnnl" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Idle/Idle-Sheet.png" id="1_ks538"]
 [ext_resource type="Texture2D" uid="uid://bo68y1qdjru28" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Death/Death-Sheet.png" id="2_1gobl"]
 [ext_resource type="Resource" uid="uid://bths5kahauj4j" path="res://Inventory/inventorys/player_inventory.tres" id="2_mwhd1"]
 [ext_resource type="Texture2D" uid="uid://deihtfnil2mxx" path="res://assets/Pixel Crawler - FREE - 1.8/Heroes/Knight/Run/Run-Sheet.png" id="3_asc40"]
+[ext_resource type="PackedScene" uid="uid://bb7trwurcsxlm" path="res://scenes/stamina.tscn" id="4_s2jb0"]
 [ext_resource type="Texture2D" uid="uid://dqexjqq2uucu2" path="res://assets/headPlayer.png" id="5_yr4e1"]
 [ext_resource type="Texture2D" uid="uid://c5a7557p1obab" path="res://assets/Pixel Crawler - FREE - 1.8/Weapons/Hands/Hands.png" id="6_q1ahu"]
 [ext_resource type="PackedScene" uid="uid://bfs7slhpjyt6b" path="res://Inventory/Ui inventory/inv_ui.tscn" id="8_4wfa7"]
 [ext_resource type="Texture2D" uid="uid://i4g70otcy3xx" path="res://assets/wooden sword1.png" id="8_6asbn"]
 [ext_resource type="PackedScene" uid="uid://b62g28661cvu4" path="res://scenes/health_bar.tscn" id="9_ka2bh"]
-[ext_resource type="PackedScene" uid="uid://tlkncijrxgls" path="res://scenes/quantity_enemies.tscn" id="10_74fs0"]
+[ext_resource type="PackedScene" path="res://scenes/quantity_enemies.tscn" id="10_74fs0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_opraq"]
 font_size = 11
@@ -432,9 +433,15 @@ offset_right = 242.0
 offset_bottom = 32.0
 scale = Vector2(0.472683, 0.362751)
 
+[node name="Stamina" parent="Panels" instance=ExtResource("4_s2jb0")]
+offset_left = 24.0
+offset_top = 28.0
+offset_right = 127.0
+offset_bottom = 36.0
+
 [node name="QuantityEnemies" parent="Panels" instance=ExtResource("10_74fs0")]
 z_index = 10
-position = Vector2(6, 27)
+position = Vector2(6, 43)
 
 [node name="HeadPlayer" type="Sprite2D" parent="Panels"]
 position = Vector2(14, 16)
@@ -509,6 +516,7 @@ zoom = Vector2(0.7, 0.7)
 
 [node name="RollRecoveryTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(-1, -15)
@@ -520,6 +528,7 @@ shape = SubResource("RectangleShape2D_tm08u")
 debug_color = Color(0.933333, 0.243137, 0.141176, 0.419608)
 
 [node name="Inv_ui" parent="." instance=ExtResource("8_4wfa7")]
+visible = false
 offset_left = -37.0
 offset_top = 14.0
 offset_right = 3.0
