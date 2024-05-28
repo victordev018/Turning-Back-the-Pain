@@ -8,7 +8,6 @@ func _ready():
 	var labelDamage = get_node("Label") as Label;
 	labelDamage.text = "-"+str(damage)
 	startPosition = global_position;
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

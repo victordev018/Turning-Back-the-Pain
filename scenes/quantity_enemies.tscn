@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://tlkncijrxgls"]
+
+[ext_resource type="Script" path="res://scripts/QuantityEnemies.gd" id="1_i2pq3"]
+[ext_resource type="Texture2D" uid="uid://vjoubxto0j1j" path="res://assets/iconCaveira.png" id="2_jibrq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sou4k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xoru"]
+font_size = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leyaq"]
+
+[node name="QuantityEnemies" type="Node2D"]
+z_index = 6
+script = ExtResource("1_i2pq3")
+
+[node name="PanelText" type="Panel" parent="."]
+offset_left = 21.0
+offset_right = 89.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sou4k")
+
+[node name="Label" type="Label" parent="PanelText"]
+custom_minimum_size = Vector2(66, 18)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 61.0
+offset_bottom = 17.0
+text = "enemyes: "
+label_settings = SubResource("LabelSettings_8xoru")
+
+[node name="PanelTexture" type="Panel" parent="."]
+offset_right = 20.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_leyaq")
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelTexture"]
+position = Vector2(8, 6)
+scale = Vector2(0.65, 0.666667)
+texture = ExtResource("2_jibrq")

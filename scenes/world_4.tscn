@@ -1701,18 +1701,20 @@ position = Vector2(349, 170)
 collision_layer = 3
 collision_mask = 2
 
-[node name="Enemy" parent="." instance=ExtResource("4_y566u")]
-position = Vector2(321, 427)
-scale = Vector2(3, 3)
-enemyResource = SubResource("Resource_wgjj0")
-enemyIdentity = SubResource("Resource_fsgny")
-bossEnemy = true
-
 [node name="UI" parent="." instance=ExtResource("6_heoxp")]
 
 [node name="FadeOut" parent="." instance=ExtResource("7_ibtyj")]
 visible = false
 
 [node name="EndLevelTimer" type="Timer" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_y566u")]
+position = Vector2(321, 427)
+scale = Vector2(3, 3)
+enemyResource = SubResource("Resource_wgjj0")
+enemyIdentity = SubResource("Resource_fsgny")
+bossEnemy = true
 
 [connection signal="timeout" from="EndLevelTimer" to="." method="_on_end_level_timer_timeout"]
