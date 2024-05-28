@@ -437,7 +437,7 @@ z_index = 10
 position = Vector2(6, 27)
 
 [node name="HeadPlayer" type="Sprite2D" parent="Panels"]
-position = Vector2(14, 17)
+position = Vector2(14, 16)
 scale = Vector2(0.675, 0.648148)
 texture = ExtResource("5_yr4e1")
 

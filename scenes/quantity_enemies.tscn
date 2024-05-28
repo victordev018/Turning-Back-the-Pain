@@ -23,11 +23,10 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_sou4k")
 [node name="Label" type="Label" parent="PanelText"]
 custom_minimum_size = Vector2(66, 18)
 layout_mode = 0
-offset_left = -5.0
+offset_left = -4.0
 offset_top = -1.0
-offset_right = 61.0
+offset_right = 62.0
 offset_bottom = 17.0
-text = "enemyes: "
 label_settings = SubResource("LabelSettings_8xoru")
 
 [node name="PanelTexture" type="Panel" parent="."]
