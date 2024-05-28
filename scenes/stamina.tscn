@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb7trwurcsxlm"]
+
+[ext_resource type="Script" path="res://scripts/stamina.gd" id="1_vdbt7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erx1x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nos7"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Stamina" type="ProgressBar"]
+offset_right = 131.0
+offset_bottom = 4.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_erx1x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8nos7")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_vdbt7")

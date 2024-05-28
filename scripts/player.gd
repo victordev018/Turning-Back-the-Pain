@@ -34,6 +34,7 @@ var knockbackVector = Vector2.ZERO;
 @onready var enemy_skeleton = null
 @onready var otherHand = get_node("Animation/Hand");
 @onready var healthBar = get_node("Panels/HealthBar") as HealthBar
+@onready var staminaBar = get_node("Panels/Stamina") as StaminaBar
 var dead = false;
 
 # Camera variables
@@ -60,7 +61,6 @@ func _ready():
 	camera.limit_top = 0;
 	camera.limit_right = camera_limit.x;
 	camera.limit_bottom = camera_limit.y;
-	
 	# Efeito surgindo
 	if spawning:
 		await get_tree().create_timer(1).timeout
@@ -152,7 +152,11 @@ func _process(delta):
 		$RollRecoveryTimer.start()
 		var _rollAnimation = "RollRight" if facing > 0 else "RollLeft"
 		$AnimationPlayer.play(_rollAnimation)
-
+	
+	# Atualizar barra de stamina
+	staminaBar.value = (3.0 - $RollRecoveryTimer.time_left) / 3.0 * staminaBar.max_value
+	
+	
 	# Mexer a mãozinha avulsa
 	var _ang = Time.get_ticks_msec() / 200.0
 	otherHand.position.y = 7 + sin(_ang) * 1.25;
@@ -233,9 +237,8 @@ func updatLabelVelocity() -> void:
 func updatLabelForce() -> void:
 	if ItemManage.availableTimeForce:
 		time_force_label.text = "Timer force: "+ str(int(ItemManage.timerForce.time_left));
+
 	
-
-
 func _on_spawning_timer_timeout():
 	pass
 	#spawning = false;
