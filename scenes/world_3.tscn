@@ -2609,7 +2609,7 @@ nameEnemy = "enemy1"
 
 [sub_resource type="Resource" id="Resource_65jrt"]
 script = ExtResource("12_gf6h0")
-nameEnemy = "enemy3"
+nameEnemy = "enemy2"
 
 [sub_resource type="Resource" id="Resource_ldwvx"]
 script = ExtResource("12_gf6h0")
@@ -2625,7 +2625,7 @@ nameEnemy = "enemy1"
 
 [sub_resource type="Resource" id="Resource_v54jp"]
 script = ExtResource("12_gf6h0")
-nameEnemy = ""
+nameEnemy = "enemy1"
 
 [sub_resource type="Resource" id="Resource_lwwx7"]
 script = ExtResource("12_gf6h0")
